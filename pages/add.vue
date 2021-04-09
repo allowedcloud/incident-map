@@ -1,6 +1,6 @@
 <template>
   <div class="flex h-screen items-center place-content-center">
-    <FormulateForm>
+    <FormulateForm @submit="addIncident">
 
       <FormulateInput
         type="text"
@@ -83,8 +83,21 @@
 </template>
 
 <script>
-export default {
+import { API } from 'aws-amplify'
+import { createIncident } from '../src/graphql/mutations'
 
+export default {
+  name: 'Add',
+  methods: {
+      async addIncident(data) {
+          await API.graphql({
+              query: createIncident,
+              variables: {
+                  input: data
+                }
+            })
+        }
+    }
 }
 </script>
 

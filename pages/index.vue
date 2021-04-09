@@ -1,11 +1,43 @@
 <template>
-  <div>
+  <div class="flex flex-col-reverse  h-screen items-center place-content-center">
+    <div
+      v-for="incident in incidents"
+      :key="incident.id"
+      class="incident flex flex-col my-4 w-96 shadow-md rounded-md p-4"
+    >
+      <div class="font-bold">{{ incident.title }}</div>
+      <div>{{ incident.state }}</div>
+      <div>{{ incident.description }}</div>
+    </div>
   </div>
 </template>
 
 <script>
-export default {}
+import { API } from 'aws-amplify'
+import { listIncidents } from '../src/graphql/queries'
+
+export default {
+    data() {
+        return {
+            incidents: []
+          }
+    },
+    methods: {
+      async getIncidents() {
+          const incidents = await API.graphql({
+              query: listIncidents
+            })
+          this.incidents = incidents.data.listIncidents.items
+        }
+    },
+    mounted() {
+      this.getIncidents()
+    }
+  }
 </script>
 
 <style>
+.incident {
+  border: 1px solid #D1D5DB;
+}
 </style>
