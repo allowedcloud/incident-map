@@ -1,3 +1,5 @@
+import awsconfig from './src/aws-exports.js'
+
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -30,10 +32,14 @@ export default {
   buildModules: [
     // https://go.nuxtjs.dev/tailwindcss
     '@nuxtjs/tailwindcss',
+    '@braid/vue-formulate/nuxt'
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
+    '@nuxtjs/axios',
+    '~/modules/vh-authhelper/index.js',
+    ['~/modules/amplify/index.js', awsconfig]
   ],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build

@@ -1,0 +1,10 @@
+{
+  "auth": {
+    "incidentmap1c1a8415": {
+      "service": "Cognito",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "customAuth": false
+    }
+  }
+}

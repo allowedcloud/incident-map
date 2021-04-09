@@ -1,0 +1,20 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-incidentmap-dev-95928-authRole",
+      "UnauthRoleArn": "arn:aws:iam::213717599609:role/amplify-incidentmap-dev-95928-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::213717599609:role/amplify-incidentmap-dev-95928-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-incidentmap-dev-95928-deployment",
+      "UnauthRoleName": "amplify-incidentmap-dev-95928-unauthRole",
+      "StackName": "amplify-incidentmap-dev-95928",
+      "StackId": "arn:aws:cloudformation:us-east-1:213717599609:stack/amplify-incidentmap-dev-95928/ce3b6010-993b-11eb-881c-0ed4cff9b69d",
+      "AmplifyAppId": "d53ctbtv2qjw"
+    },
+    "categories": {
+      "auth": {
+        "incidentmap1c1a8415": {}
+      }
+    }
+  }
+}
