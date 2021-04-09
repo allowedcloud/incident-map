@@ -56,7 +56,7 @@ export default {
 <style lang="scss">
 /* @import "../node_modules/@braid/vue-formulate/themes/snow/snow.scss"; */
 
-input {
+input, textarea{
     border: 1px solid #D1D5DB;
     padding: 5px;
     border-radius: 5px;

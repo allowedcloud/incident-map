@@ -1,5 +1,8 @@
 <template>
-  <h1 class="text-2xl">Hello {{ getUser.username }}</h1>
+  <div>
+    <h1 class="text-2xl">Hello {{ getUser.username }}</h1>
+    <NuxtLink to="/add">Add Incident</NuxtLink>
+  </div>
 </template>
 
 <script>
