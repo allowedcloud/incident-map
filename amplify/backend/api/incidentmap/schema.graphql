@@ -1,0 +1,9 @@
+type Incident @model {
+  id: ID!
+  title: String!
+  description: String
+  date: String
+  state: String
+  lat: Float
+  long: Float
+}
