@@ -5,7 +5,7 @@
       <NuxtLink to="/">Home</NuxtLink>
       <NuxtLink to="/about">About</NuxtLink>
       <NuxtLink v-if="!isAuthenticated" to="/login">Login</NuxtLink>
-      <button v-if="isAuthenticated" @click="logout">Logout</button>
+      <button v-if="isAuthenticated" @click="logout" class="underline">Logout</button>
       <span v-if="isAuthenticated"> | </span>
       <span v-if="isAuthenticated">Hello </span>
       <NuxtLink v-if="isAuthenticated" :to="'/users/' + getUser">{{ getUser }}</NuxtLink>

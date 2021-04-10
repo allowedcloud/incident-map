@@ -97,8 +97,9 @@ export default {
                 }
             })
           this.$formulate.reset('add')
-        }
-    }
+      }
+  },
+  middleware: 'authenticated'
 }
 </script>
 

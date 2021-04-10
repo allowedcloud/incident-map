@@ -38,7 +38,7 @@ export default {
                   password: data.password
                 })
               if (user) {
-                  this.$router.push('/')
+                  this.$router.push('/users/' + user.username)
                 }
             } catch (error) {
                 this.error = error
