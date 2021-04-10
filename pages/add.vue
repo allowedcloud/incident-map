@@ -1,6 +1,6 @@
 <template>
   <div class="flex h-screen items-center place-content-center">
-    <FormulateForm @submit="addIncident">
+    <FormulateForm name="add" @submit="addIncident">
 
       <FormulateInput
         type="text"
@@ -96,6 +96,7 @@ export default {
                   input: data
                 }
             })
+          this.$formulate.reset('add')
         }
     }
 }
