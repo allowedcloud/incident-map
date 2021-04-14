@@ -17,12 +17,16 @@ export default {
     ]
   },
 
+  env: {
+    mapboxToken: process.env.MAPBOX_TOKEN
+  },
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
+   // { src: '~/plugins/mapbox', mode: 'client' }
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components

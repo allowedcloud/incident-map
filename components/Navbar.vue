@@ -1,9 +1,8 @@
 <template>
-  <nav class="flex flex-row justify-between bg-indigo-200 p-2">
-    <div class="font-mono">Incident Map</div>
+  <nav class="flex flex-row justify-between items-baseline p-2">
+    <div class="font-serif font-bold text-xl text-gray-600">Incident Map</div>
     <div class="links">
       <NuxtLink to="/">Home</NuxtLink>
-      <NuxtLink to="/about">About</NuxtLink>
       <NuxtLink v-if="!isAuthenticated" to="/login">Login</NuxtLink>
       <button v-if="isAuthenticated" @click="logout" class="underline">Logout</button>
       <span v-if="isAuthenticated"> | </span>
@@ -25,7 +24,7 @@ export default {
           return (
           this.$store.state.auth?.cognitoUser?.username || "Unknown User"
           )
-        }
+      },
     },
   methods: {
       ...mapActions({
