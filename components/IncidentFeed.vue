@@ -13,7 +13,7 @@
           <img src="/external-link.svg" class="w-4 h-4">
         </div>
       </div>
-      <div class="font-bold text-lg">{{ incident.title }}</div>
+      <div class="text-xl font-bold">{{ incident.title }}</div>
       <div class="text-gray-500 text-sm group-hover:text-yellow-500">{{ incident.state }}</div>
       <div class="text-gray-500">{{ incident.description }}</div>
     </div>
