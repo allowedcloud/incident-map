@@ -15,6 +15,7 @@
       <FormulateInput
         type="submit"
         label="Login"
+        class="submit-button"
       />
 
       <div class="text-red-400 text-sm pt-4">{{ error.message }}</div>
@@ -66,10 +67,12 @@ label {
     font-weight: 600;
     margin: 5px 0;
 }
-button {
+.submit-button {
     @apply bg-indigo-200;
     @apply p-2;
     @apply my-2;
     @apply rounded-md;
+    @apply w-16;
+    @apply text-center;
   }
 </style>
