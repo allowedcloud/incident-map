@@ -71,19 +71,21 @@ export default {
       marker.id = incident.id;
       return marker;
     });
-    const unsubscribe = this.$store.subscribe((mutation, state) => {
-      const id = mutation.payload
-      const marker = this.markers.find((marker) => marker.id === id)
-      marker._element.classList.add("hidden")
-      this.markers.forEach((marker) => {
-        const popup = marker.getPopup()
-        if (popup.isOpen()) {
-          marker.togglePopup()
-          marker._element.classList.remove("hidden")
-        }
-      })
+    const unsubscribe = this.$store.subscribe((mutation) => {
+      if (mutation.type == "incidents/setSelectedIncident") {
+        const id = mutation.payload
+        const marker = this.markers.find((marker) => marker.id === id)
+        marker._element.classList.add("hidden")
+        this.markers.forEach((marker) => {
+          const popup = marker.getPopup()
+          if (popup.isOpen()) {
+            marker.togglePopup()
+            marker._element.classList.remove("hidden")
+          }
+        })
       this.map.flyTo({ center: marker.getLngLat(), speed: 0.5, zoom: 6 })
       marker.togglePopup()
+      }
     })
   },
   methods: {
