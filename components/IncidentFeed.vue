@@ -1,7 +1,7 @@
 <template>
   <div>
     <div
-      v-for="incident in incidents"
+      v-for="incident in sortedIncidents"
       :key="incident.id"
       class="group incident flex flex-col my-4 w-96 shadow-md rounded-md p-4 hover:border-2 hover:border-yellow-400 cursor-pointer"
       @click="click(incident.id)"
@@ -29,12 +29,18 @@ export default {
             incidents: []
         }
     },
+    computed: {
+      sortedIncidents() {
+        const sorted = this.incidents.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
+        return sorted
+      }
+    },
     methods: {
       async getIncidents() {
           const incidents = await API.graphql({
               query: listIncidents
             })
-          this.incidents = incidents.data.listIncidents.items
+        this.incidents = incidents.data.listIncidents.items
       },
       click(id) {
         this.$store.dispatch('incidents/getSelectedIncident', id)

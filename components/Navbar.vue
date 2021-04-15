@@ -5,6 +5,7 @@
     </div>
     <div class="links">
       <NuxtLink to="/">Home</NuxtLink>
+      <NuxtLink v-if="isAuthenticated" to="/add">Add</NuxtLink>
       <NuxtLink v-if="!isAuthenticated" to="/login">Login</NuxtLink>
       <button v-if="isAuthenticated" @click="logout" class="underline">Logout</button>
       <span v-if="isAuthenticated"> | </span>
