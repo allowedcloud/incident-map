@@ -4,7 +4,8 @@ import {listIncidents} from "../src/graphql/queries"
 
 export const state = () => ({
   incidents: [],
-  selectedIncident: null
+  selectedIncident: null,
+  selectedMarker: null
 })
 
 export const mutations = {
@@ -13,6 +14,9 @@ export const mutations = {
   },
   setSelectedIncident(state, id) {
     state.selectedIncident = id
+  },
+  setSelectedMarker(state, id) {
+    state.selectedMarker = id
   }
 }
 
@@ -30,5 +34,8 @@ export const actions = {
   },
   getSelectedIncident({ commit }, id) {
     commit('setSelectedIncident', id)
+  },
+  getSelectedMarker({ commit }, id) {
+    commit('setSelectedMarker', id)
   }
 }

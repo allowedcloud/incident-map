@@ -1,5 +1,5 @@
 <template>
-  <div id="map" class="map h-full m-2 rounded-lg"></div>
+  <div id="map"></div>
 </template>
 
 <script>
@@ -48,6 +48,8 @@ export default {
           this.selectedMarker.classList.remove("hidden");
         }
         this.selectedMarker = e.target;
+        this.selectedMarker.id = incident.id;
+        this.$store.dispatch("incidents/getSelectedMarker", this.selectedMarker.id)
         this.selectedMarker.classList.add("hidden");
         this.map.flyTo({ center: LngLat, speed: 0.5 });
       });
@@ -95,6 +97,13 @@ export default {
 
 <style>
 @import "../node_modules/mapbox-gl/dist/mapbox-gl.css";
+
+#map {
+  min-height: 90vh;
+  @apply rounded-lg;
+  border-width: 1px;
+  @apply border-gray-900;
+}
 
 *:focus {
   outline: none;

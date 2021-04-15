@@ -1,9 +1,10 @@
 <template>
-  <nav class="flex flex-row justify-between items-baseline p-2">
-    <div class="font-serif font-bold text-xl text-gray-600">
-      Incident Map
+  <nav class="flex flex-row justify-between items-center p-2">
+    <div class="flex flex-row items-center ml-2">
+      <img src="/hero-pin.svg" class="w-6">
+      <span class="text-xl font-bold ml-1 select-none">Incident Map</span>
     </div>
-    <div class="links">
+    <div class="links mr-2">
       <NuxtLink to="/">Home</NuxtLink>
       <NuxtLink v-if="isAuthenticated" to="/add">Add</NuxtLink>
       <NuxtLink v-if="!isAuthenticated" to="/login">Login</NuxtLink>
