@@ -1,9 +1,9 @@
 <template>
-  <div class="grid grid-cols-6 h-full">
-    <div class="col-span-4">
+  <div class="grid lg:grid-cols-6 h-full">
+    <div class="lg:col-span-4">
       <Map />
     </div>
-    <div class="flex flex-col col-span-2 items-center">
+    <div class="flex flex-col lg:col-span-2 items-center">
       <IncidentFeed />
     </div>
   </div>
