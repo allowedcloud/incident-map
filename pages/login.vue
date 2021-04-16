@@ -18,7 +18,7 @@
         class="submit-button"
       />
 
-      <div class="text-red-400 text-sm pt-4">{{ error.message }}</div>
+      <div class="text-red-400 text-sm pt-4 w-40">{{ error.message }}</div>
     </FormulateForm>    
   </div>
 </template>
