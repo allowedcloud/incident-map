@@ -30,19 +30,24 @@ export default {
 
     this.markers = this.list.incidents.items.map((incident) => {
       const LngLat = [incident.long, incident.lat];
-
+      const lat = String(incident.lat).slice(0,5)
+      const long = String(incident.long).slice(0,6)
       let popup = `
         <div class="m-4">
+          <p class="text-xs uppercase text-gray-500 font-bold">${incident.state}</p>
+          <p class="text-xs uppercase text-gray-400 font-bold mb-8">${incident.date}</p>
           <h3 class="font-bold">${incident.title}</h3>
-          <p>${incident.state}</p>
+          <p class="flex flex-row flex-nowrap text-red-500 text-xs font-mono font-bold">${lat}, ${long}</p>
+          <p class="text-sm text-gray-200">${incident.description}</p>
         </div>
       `;
 
       const element = document.createElement("div");
       element.className = "marker";
-      element.style.backgroundImage = "url('/pin.svg')";
-      element.style.width = "70px";
-      element.style.height = "70px";
+      element.style.backgroundImage = "url('/ak.svg')";
+      element.style.width = "40px";
+      element.style.height = "40px";
+      element.classList.add("bg-white", "rounded-full", "m-1", "border-2", "border-gray-600")
       element.addEventListener("click", (e) => {
         if (this.selectedMarker) {
           this.selectedMarker.classList.remove("hidden");
@@ -117,29 +122,30 @@ button:focus {
   max-width: 300px;
 }
 .mapboxgl-popup-content {
-  @apply text-white bg-black rounded-none pt-16 px-6 pb-12 leading-snug text-lg;
+  @apply text-white bg-gray-800 px-6 pb-6 leading-snug text-lg rounded-lg;
 }
 .mapboxgl-popup-close-button {
   @apply text-3xl mt-2 mr-4;
 }
 .mapboxgl-popup-tip {
   border: 2rem solid transparent;
+  margin-top: -2px;
 }
 .mapboxgl-popup-anchor-top .mapboxgl-popup-tip,
 .mapboxgl-popup-anchor-top-left .mapboxgl-popup-tip,
 .mapboxgl-popup-anchor-top-right .mapboxgl-popup-tip {
-  border-bottom-color: black;
+  border-bottom-color: #1F2937;
 }
 .mapboxgl-popup-anchor-bottom .mapboxgl-popup-tip,
 .mapboxgl-popup-anchor-bottom-left .mapboxgl-popup-tip,
 .mapboxgl-popup-anchor-bottom-right .mapboxgl-popup-tip {
-  border-top-color: black;
+  border-top-color: #1F2937;
 }
 .mapboxgl-popup-anchor-left .mapboxgl-popup-tip {
-  border-right-color: black;
+  border-right-color: #1F2937;
 }
 .mapboxgl-popup-anchor-right .mapboxgl-popup-tip {
-  border-left-color: black;
+  border-left-color: #1F2937;
 }
 
 </style>
