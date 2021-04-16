@@ -82,7 +82,9 @@ export default {
       if (mutation.type == "incidents/setSelectedIncident") {
         const id = mutation.payload
         const marker = this.markers.find((marker) => marker.id === id)
-        marker._element.classList.add("hidden")
+        this.map.flyTo({ center: marker.getLngLat(), speed: 0.5, zoom: 6 })
+
+        
         this.markers.forEach((marker) => {
           const popup = marker.getPopup()
           if (popup.isOpen()) {
@@ -90,8 +92,11 @@ export default {
             marker._element.classList.remove("hidden")
           }
         })
-      this.map.flyTo({ center: marker.getLngLat(), speed: 0.5, zoom: 6 })
-      marker.togglePopup()
+
+
+        marker.togglePopup()
+        marker._element.classList.add("hidden")
+
       }
     })
   },
