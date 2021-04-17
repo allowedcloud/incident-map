@@ -11,6 +11,8 @@ export const getIncident = /* GraphQL */ `
       state
       lat
       long
+      sources
+      type
       createdAt
       updatedAt
     }
@@ -31,6 +33,8 @@ export const listIncidents = /* GraphQL */ `
         state
         lat
         long
+        sources
+        type
         createdAt
         updatedAt
       }

@@ -2,8 +2,10 @@ type Incident @model {
   id: ID!
   title: String!
   description: String
-  date: String
-  state: String
-  lat: Float
-  long: Float
+  date: String!
+  state: String!
+  lat: Float!
+  long: Float!
+  sources: String!
+  type: String!
 }

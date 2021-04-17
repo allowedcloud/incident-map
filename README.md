@@ -1,20 +1,5 @@
-# incident-map
+# Significant Activity Map
 
-## Build Setup
+![W3C Validation](https://img.shields.io/w3c-validation/html?targetUrl=https%3A%2F%2Fmaster.d53ctbAtv2qjw.amplifyapp.com%2F)
+![Website](https://img.shields.io/website?url=https%3A%2F%2Fmaster.d53ctbtv2qjw.amplifyapp.com%2F)
 
-```bash
-# install dependencies
-$ yarn install
-
-# serve with hot reload at localhost:3000
-$ yarn dev
-
-# build for production and launch server
-$ yarn build
-$ yarn start
-
-# generate static project
-$ yarn generate
-```
-
-For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
