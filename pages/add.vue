@@ -33,11 +33,9 @@
 
           <FormulateInput
             type="textarea"
-            v-model="value"
             name="description"
             label="Description"
-            validation="required|max:300, length"
-            :help="`${300 - value.length} characters left`"
+            validation="required|max:200"
             class="desc"
           />
 
@@ -102,10 +100,9 @@
           </div>
         </div>
         <div class="col-span-2 source">
-          <!-- <h1 class="text-xl uppercase font-bold mb-4 border-b-2 border-gray-300">Sources</h1> -->
-          <FormulateInput type="group" :repeatable="true" add-label="+ Source">
-            <FormulateInput label="Source URL" placeholder="https://" validation="required|url" />
-          </FormulateInput>
+          <FormulateInput type="group" name="sources" :repeatable="true" add-label="+ Source">
+            <FormulateInput type="url" name="link" label="Source URL" placeholder="https://" validation="required|url" />
+            </FormulateInput>
         </div>
       </div>
       <FormulateInput type="submit" label="Submit" />
@@ -121,7 +118,7 @@ export default {
   name: "Add",
   data() {
     return {
-      value: "",
+      value: "What happens?",
     };
   },
   methods: {
