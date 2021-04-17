@@ -1,5 +1,5 @@
 <template>
-  <div id="map"></div>
+  <div id="map" class="overflow-hidden h-96 lg:h-full"></div>
 </template>
 
 <script>
@@ -9,7 +9,7 @@ export default {
     return {
       map: null,
       markers: [],
-      selectedMarker: null,
+      selectedMarker: '',
     };
   },
   computed: {
@@ -44,7 +44,12 @@ export default {
 
       const element = document.createElement("div");
       element.className = "marker";
-      element.style.backgroundImage = "url('/ak.svg')";
+      
+      if (incident.type === "Confrontation") {
+        element.style.backgroundImage = "url(/ak.svg)";
+      } else if (incident.type === "Execution") {
+        element.style.backgroundImage = "url(/death.svg)";
+      } 
       element.style.width = "40px";
       element.style.height = "40px";
       element.classList.add("bg-white", "rounded-full", "m-1", "border-2", "border-gray-600")
@@ -56,7 +61,7 @@ export default {
         this.selectedMarker.id = incident.id;
         this.$store.dispatch("incidents/getSelectedMarker", this.selectedMarker.id)
         this.selectedMarker.classList.add("hidden");
-        this.map.flyTo({ center: LngLat, speed: 0.5 });
+        this.map.flyTo({ center: LngLat, speed: 0.5, zoom: 6 });
       });
 
       const popupElement = new mapboxgl.Popup({
@@ -90,13 +95,14 @@ export default {
           if (popup.isOpen()) {
             marker.togglePopup()
             marker._element.classList.remove("hidden")
+          } else {
+            marker._element.classList.add("hidden")
           }
         })
 
 
         marker.togglePopup()
         marker._element.classList.add("hidden")
-
       }
     })
   },
@@ -109,7 +115,12 @@ export default {
 @import "../node_modules/mapbox-gl/dist/mapbox-gl.css";
 
 #map {
-  min-height: 90vh;
+  @media (min-width: 1025px) {
+    min-height: 89vh;
+  }
+  @media (max-width: 768px) {
+    min-height: 65vh;
+  }
   @apply rounded-lg;
   border-width: 1px;
   @apply border-gray-900;

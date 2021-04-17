@@ -1,5 +1,5 @@
 <template>
-  <div class="text-right my-2">
+  <div class="pr-4 py-1 border-t border-gray-800 text-right bg-gray-200">
     <p class="text-gray-600 text-xs mr-2">
       <NuxtLink to="/about" class="underline mx-1">About</NuxtLink>
       <NuxtLink to="#" class="underline ml-1">Contact</NuxtLink>
