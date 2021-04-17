@@ -95,8 +95,6 @@ export default {
           if (popup.isOpen()) {
             marker.togglePopup()
             marker._element.classList.remove("hidden")
-          } else {
-            marker._element.classList.add("hidden")
           }
         })
 
