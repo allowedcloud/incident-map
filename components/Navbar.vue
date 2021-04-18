@@ -4,7 +4,7 @@
       <img src="/hero-pin.svg" class="w-6">
       <span class="text-xl font-bold ml-1 select-none">Incident Map</span>
     </div>
-    <div class="links mr-2">
+    <!-- <div class="links mr-2">
       <NuxtLink to="/">Home</NuxtLink>
       <NuxtLink v-if="isAuthenticated" to="/add">Add</NuxtLink>
       <NuxtLink v-if="!isAuthenticated" to="/login">Login</NuxtLink>
@@ -12,7 +12,7 @@
       <span v-if="isAuthenticated"> | </span>
       <span v-if="isAuthenticated">Hello </span>
       <NuxtLink v-if="isAuthenticated" :to="'/users/' + getUser">{{ getUser }}</NuxtLink>
-    </div>
+    </div> -->
   </nav>
 </template>
 
