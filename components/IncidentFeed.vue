@@ -1,61 +1,107 @@
 <template>
   <div>
-    <div
-      id="container"
-      class="h-48 md:h-60 incident-container overflow-y-scroll w-full"
-    >
-      <div
-        v-for="incident in sortedIncidents"
-        :key="incident.id"
-        :id="incident.id + hello"
-        class="group flex flex-col px-12"
-        @click="click(incident.id)"
-      >
-        <template v-if="incident.id === selectedMarker">
-          <div class="default border-yellow-400">
-            <div class="flex justify-between">
-              <div class="font-mono text-gray-400 text-sm">
-                {{ incident.date }}
+    <tabs>
+      <tab title="Incidents">
+        <div
+          id="container"
+          class="h-48 md:h-60 incident-container overflow-y-scroll w-full mt-10"
+        >
+          <div
+            v-for="incident in sortedIncidents"
+            :key="incident.id"
+            :id="incident.id + hello"
+            class="group flex flex-col px-12"
+            @click="click(incident.id)"
+          >
+            <template v-if="incident.id === selectedMarker">
+              <div class="default border-yellow-400">
+                <div class="flex justify-between">
+                  <div class="font-mono text-gray-400 text-sm">
+                    {{ incident.date }}
+                  </div>
+                  <div
+                    class="flex flex-nowrap items-center bg-yellow-400 rounded-lg p-1"
+                  >
+                    <img src="/external-link.svg" class="w-4 h-4" />
+                  </div>
+                </div>
+                <div class="text-xl font-bold">{{ incident.title }}</div>
+                <div class="text-yellow-500 text-sm">{{ incident.state }}</div>
+                <div class="text-gray-500">{{ incident.description }}</div>
               </div>
-              <div
-                class="flex flex-nowrap items-center bg-yellow-400 rounded-lg p-1"
-              >
-                <img src="/external-link.svg" class="w-4 h-4" />
+            </template>
+            <template v-else>
+              <div class="default hover:border-yellow-400 group">
+                <div class="flex justify-between">
+                  <div class="font-mono text-gray-400 text-sm">
+                    {{ incident.date }}
+                  </div>
+                  <div
+                    class="flex flex-nowrap items-center bg-gray-100 incident hover:bg-gray-200 rounded-lg p-1"
+                  >
+                    <img src="/external-link.svg" class="w-4 h-4" />
+                  </div>
+                </div>
+                <div class="text-xl font-bold">{{ incident.title }}</div>
+                <div class="text-gray-500 text-sm group-hover:text-yellow-400">
+                  {{ incident.state }}
+                </div>
+                <div class="text-gray-500">{{ incident.description }}</div>
               </div>
-            </div>
-            <div class="text-xl font-bold">{{ incident.title }}</div>
-            <div class="text-yellow-500 text-sm">{{ incident.state }}</div>
-            <div class="text-gray-500">{{ incident.description }}</div>
+            </template>
           </div>
-        </template>
-        <template v-else>
-          <div class="default hover:border-yellow-400 group">
-            <div class="flex justify-between">
-              <div class="font-mono text-gray-400 text-sm">
-                {{ incident.date }}
-              </div>
-              <div
-                class="flex flex-nowrap items-center bg-gray-100 incident hover:bg-gray-200 rounded-lg p-1"
-              >
-                <img src="/external-link.svg" class="w-4 h-4" />
-              </div>
-            </div>
-            <div class="text-xl font-bold">{{ incident.title }}</div>
-            <div class="text-gray-500 text-sm group-hover:text-yellow-400">
-              {{ incident.state }}
-            </div>
-            <div class="text-gray-500">{{ incident.description }}</div>
+        </div>
+      </tab>
+      <tab title="Date">
+        <div class="flex flex-col gap-6 mt-20">
+          <h1 class="text-lg font-bold font-mono">2021</h1>
+          <div @click="sortByMonth('April')" class="underline text-blue-500 cursor-pointer">April</div>
+
+        </div>
+      </tab>
+      <tab title="Key">
+        <div class="flex flex-col gap-6 mt-20 select-none">
+          <div class="flex items-center gap-6">
+            <img src="/death.svg" alt="Homicide" class="w-12 h-12 rounded-full border-2 border-gray-600" />
+            <p class="text-xl font-bold">Homicide</p>
           </div>
-        </template>
-      </div>
-    </div>
+          <div class="flex items-center gap-6">
+            <img src="/ak.svg" alt="Confrontation" class="w-12 h-12 rounded-full border-2 border-gray-600" />
+            <p class="text-xl font-bold">Confrontation</p>
+          </div>
+          <div class="flex items-center gap-6">
+            <img src="/drugs.svg" alt="Drugs" class="w-12 h-12 rounded-full border-2 border-gray-600" />
+            <p class="text-xl font-bold">Drug trafficking</p>
+          </div>
+          <div class="flex items-center gap-6">
+            <img src="/arrest.svg" alt="arrest" class="w-12 h-12 rounded-full border-2 border-gray-600" />
+            <p class="text-xl font-bold">Apprehension</p>
+          </div>
+          <div class="flex items-center gap-6">
+            <img src="/kidnap.png" alt="Kidnapping" class="w-12 h-12 rounded-full border-2 border-gray-600" />
+            <p class="text-xl font-bold">Kidnapping</p>
+          </div>
+        </div>
+      </tab>
+      <tab title="About">
+        <p class="mt-20 px-6">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum
+          vel pellentesque nisi, vel dapibus sapien. Donec pharetra felis eu
+          velit euismod dictum. Mauris elementum efficitur ipsum, id vulputate
+          nunc imperdiet nec. Nullam vitae libero sed tortor lobortis maximus.
+          Mauris euismod, mi a condimentum cursus, mi nulla consectetur dui, at
+          suscipit neque tellus mattis mauris. Aliquam neque dui, consequat eu
+          enim at, fermentum luctus ipsum. Sed id congue tortor. In dignissim
+          sed urna faucibus pharetra.
+        </p>
+      </tab>
+    </tabs>
   </div>
 </template>
 
 <script>
 import { API } from "aws-amplify";
 import { listIncidents } from "../src/graphql/queries";
-import { Tabs, Tab } from "vue-slim-tabs";
 export default {
   data() {
     return {
@@ -64,10 +110,6 @@ export default {
       selectedIncident: "",
       hello: "hello",
     };
-  },
-  components: {
-    Tabs,
-    Tab,
   },
   computed: {
     sortedIncidents() {
@@ -86,9 +128,12 @@ export default {
     },
     click(id) {
       this.selectedIncident = id;
-      this.$router.push({path: "?id=" + id})
+      this.$router.push({ path: "?id=" + id });
       this.$store.dispatch("incidents/getSelectedIncident", id);
     },
+    sortByMonth(month) {
+      console.log(month)
+    }
   },
   mounted() {
     this.getIncidents();
@@ -123,10 +168,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import "../node_modules/vue-slim-tabs/themes/default.css";
-
 .incident-container {
-  @apply mt-10;
   @media (min-width: 1025px) {
     /* height: 770px; */
     height: 88vh;
@@ -134,7 +176,6 @@ export default {
     padding: 25px 0;
   }
 }
-
 .icon {
   @apply w-14;
   @apply bg-white;

@@ -2,7 +2,7 @@
   <nav class="flex flex-row justify-between items-center p-2">
     <div class="flex flex-row items-center ml-2">
       <img src="/warning.svg" class="w-6">
-      <span class="text-xl font-bold ml-1 select-none">Incident Map</span>
+      <span class="text-xl font-bold ml-1 select-none">Significant Activities Map</span>
     </div>
     <!-- <div class="links mr-2">
       <NuxtLink to="/">Home</NuxtLink>
