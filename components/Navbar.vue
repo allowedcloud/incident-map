@@ -1,7 +1,7 @@
 <template>
   <nav class="flex flex-row justify-between items-center p-2">
     <div class="flex flex-row items-center ml-2">
-      <img src="/hero-pin.svg" class="w-6">
+      <img src="/warning.svg" class="w-6">
       <span class="text-xl font-bold ml-1 select-none">Incident Map</span>
     </div>
     <!-- <div class="links mr-2">
@@ -13,6 +13,20 @@
       <span v-if="isAuthenticated">Hello </span>
       <NuxtLink v-if="isAuthenticated" :to="'/users/' + getUser">{{ getUser }}</NuxtLink>
     </div> -->
+    <div class="flex flex-row mr-2 gap-4">
+      <NuxtLink to="/">
+        <img src="/home.svg" alt="Home" class="h-6 w-6">
+      </NuxtLink>
+      <NuxtLink v-if="!isAuthenticated" to="/login">
+        <img src="/user.svg" alt="Login" class="h-6 w-6">
+      </NuxtLink>
+      <NuxtLink v-if="isAuthenticated" :to="'/users/' + getUser">
+        <img src="/user-circle.svg" alt="User" class="h-6 w-6">
+      </NuxtLink>
+      <button v-if="isAuthenticated" @click="logout">
+        <img src="/logout.svg" alt="Logout" class="h-6 w-6">
+      </button>
+    </div>
   </nav>
 </template>
 
