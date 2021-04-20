@@ -1,112 +1,128 @@
 <template>
-  <div
-    class="flex flex-col h-screen items-center place-content-center add-incident"
-  >
-    <FormulateForm
-      name="add"
-      @submit="addIncident"
-      class="bg-gray-100 border-2 border-gray-200 p-8 shadow-lg rounded-lg"
+  <div class="m-12 mx-36">
+    <h1 class="text-3xl font-bold border-b-2 border-gray-300 mb-6">
+      Add Incident
+    </h1>
+    <div
+      class="flex flex-col h-screen items-center add-incident"
     >
-      <div class="grid grid-cols-6 form-grid">
-        <div class="col-span-4">
-          <FormulateInput
-            type="text"
-            name="title"
-            label="Title"
-            placeholder="Title"
-            validation="required"
-            class="title"
-          />
+      <FormulateForm
+        name="add"
+        @submit="addIncident"
+        class="bg-gray-100 border-2 border-gray-200 p-8 shadow-lg rounded-lg"
+      >
+        <div class="grid grid-cols-6 form-grid">
+          <div class="col-span-4">
+            <FormulateInput
+              type="text"
+              name="title"
+              label="Title"
+              placeholder="Title"
+              validation="required"
+              class="title"
+            />
 
-          <FormulateInput
-            type="select"
-            name="type"
-            label="Type"
-            :options="['Confrontation', 'Execution']"
-          />
-          <FormulateInput
-            type="date"
-            name="date"
-            label="Date"
-            validation="required|after:2021-01-01"
-          />
-
-          <FormulateInput
-            type="textarea"
-            name="description"
-            label="Description"
-            validation="required|max:200"
-            class="desc"
-          />
-
-          <h1
-            class="text-xl uppercase font-bold mb-4 border-b-2 border-gray-300 mt-6"
-          >
-            Location
-          </h1>
-
-          <div class="lat-long flex flex-row">
             <FormulateInput
               type="select"
-              name="state"
-              label="State"
-              :options="[
-                'Aguascalientes',
-                'Baja California',
-                'Baja California Sur',
-                'Campeche',
-                'Chiapas',
-                'Chihuahua',
-                'Mexico City',
-                'Coahuila',
-                'Colima',
-                'Durango',
-                'Guanajuato',
-                'Guerrero',
-                'Hidalgo',
-                'Jalisco',
-                'México',
-                'Michoacán',
-                'Morelos',
-                'Nayarit',
-                'Nuevo León',
-                'Oaxaca',
-                'Puebla',
-                'Querétaro',
-                'Quintana Roo',
-                'San Luis Potosí',
-                'Sinaloa',
-                'Tabasco',
-                'Tamaulipas',
-                'Tlaxcala',
-                'Veracruz',
-                'Yucatán',
-                'Zacatecas',
-              ]"
+              name="type"
+              label="Type"
+              :options="['Confrontation', 'Execution']"
             />
             <FormulateInput
-              type="text"
-              name="lat"
-              label="Latitude"
-              validation="required|number"
+              type="date"
+              name="date"
+              label="Date"
+              validation="required|after:2021-01-01"
             />
 
             <FormulateInput
-              type="text"
-              name="long"
-              label="Longitude"
-              validation="required|number"
+              type="textarea"
+              name="description"
+              label="Description"
+              validation="required|max:200"
+              class="desc"
             />
+
+            <h1
+              class="text-xl uppercase font-bold mb-4 border-b-2 border-gray-300 mt-6"
+            >
+              Location
+            </h1>
+
+            <div class="lat-long flex flex-row">
+              <FormulateInput
+                type="select"
+                name="state"
+                label="State"
+                :options="[
+                  'Aguascalientes',
+                  'Baja California',
+                  'Baja California Sur',
+                  'Campeche',
+                  'Chiapas',
+                  'Chihuahua',
+                  'Mexico City',
+                  'Coahuila',
+                  'Colima',
+                  'Durango',
+                  'Guanajuato',
+                  'Guerrero',
+                  'Hidalgo',
+                  'Jalisco',
+                  'México',
+                  'Michoacán',
+                  'Morelos',
+                  'Nayarit',
+                  'Nuevo León',
+                  'Oaxaca',
+                  'Puebla',
+                  'Querétaro',
+                  'Quintana Roo',
+                  'San Luis Potosí',
+                  'Sinaloa',
+                  'Tabasco',
+                  'Tamaulipas',
+                  'Tlaxcala',
+                  'Veracruz',
+                  'Yucatán',
+                  'Zacatecas',
+                ]"
+              />
+              <FormulateInput
+                type="text"
+                name="lat"
+                label="Latitude"
+                validation="required|number"
+              />
+
+              <FormulateInput
+                type="text"
+                name="long"
+                label="Longitude"
+                validation="required|number"
+              />
+            </div>
+          </div>
+          <div class="col-span-2 source">
+            <FormulateInput
+              type="group"
+              name="sources"
+              :repeatable="true"
+              add-label="+ Source"
+            >
+              <FormulateInput
+                type="url"
+                name="link"
+                label="Source URL"
+                placeholder="https://"
+                validation="required|url"
+              />
+            </FormulateInput>
           </div>
         </div>
-        <div class="col-span-2 source">
-          <FormulateInput type="group" name="sources" :repeatable="true" add-label="+ Source">
-            <FormulateInput type="url" name="link" label="Source URL" placeholder="https://" validation="required|url" />
-            </FormulateInput>
-        </div>
-      </div>
-      <FormulateInput type="submit" label="Submit" />
-    </FormulateForm>
+        <FormulateInput type="submit" label="Submit" />
+      </FormulateForm>
+    </div>
   </div>
 </template>
 

@@ -103,23 +103,8 @@ export default {
         marker._element.classList.add("hidden")
       }
     })
-    this.toggleMarkers()
   },
   methods: {
-    toggleMarkers() {
-      const id = this.$route.query.id
-      if (!id) return
-
-      const marker = this.markers.find((marker) => marker.id === id)
-      if(!marker) return
-
-      this.map.flyTo({
-        center: marker.getLngLat(),
-        zoom: 6
-      })
-      // marker.togglePopup()
-      // marker._element.classList.add("hidden")
-    }
   },
 };
 </script>
