@@ -83,19 +83,10 @@ export default {
   },
   computed: {
     sortedIncidents() {
-      const sorted = this.incidents.sort(
-        (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
-      );
-      return sorted;
+      return this.$store.state.incidents.incidents.items
     },
   },
   methods: {
-    async getIncidents() {
-      const incidents = await API.graphql({
-        query: listIncidents,
-      });
-      this.incidents = incidents.data.listIncidents.items;
-    },
     clickIncident(id) {
       this.selectedIncident = id;
       this.$router.push({ path: "?id=" + id });
@@ -103,8 +94,6 @@ export default {
     },
   },
   mounted() {
-    this.getIncidents();
-
     const unsubscribe = this.$store.subscribe((mutation) => {
       if (mutation.type === "incidents/setSelectedMarker") {
         this.selectedMarker = mutation.payload;
