@@ -7,7 +7,7 @@
           class="h-48 md:h-60 incident-container overflow-y-scroll w-full mt-10"
         >
           <div
-            v-for="incident in sortedIncidents"
+            v-for="incident in incidents"
             :key="incident.id"
             :id="incident.id + xxx"
             class="group flex flex-col px-12"
@@ -55,8 +55,12 @@
       <tab title="Date">
         <div class="flex flex-col gap-6 mt-20">
           <h1 class="text-lg font-bold font-mono">2021</h1>
-          <div @click="sortByMonth('April')" class="underline text-blue-500 cursor-pointer">April</div>
-
+          <div
+            @click="sortByMonth('April')"
+            class="underline text-blue-500 cursor-pointer"
+          >
+            April
+          </div>
         </div>
       </tab>
       <tab title="Key">
@@ -70,20 +74,18 @@
 </template>
 
 <script>
-import { API } from "aws-amplify";
-import { listIncidents } from "../src/graphql/queries";
 export default {
   data() {
     return {
-      incidents: [],
       selectedMarker: "",
       selectedIncident: "",
       xxx: "xxx",
     };
   },
   computed: {
-    sortedIncidents() {
-      return this.$store.state.incidents.incidents.items
+    incidents() {
+      this.$store.commit("incidents/sortIncidents")
+      return this.$store.state.incidents.sortedIncidents;
     },
   },
   methods: {

@@ -4,6 +4,7 @@ import {listIncidents} from "../src/graphql/queries"
 
 export const state = () => ({
   incidents: [],
+  sortedIncidents: [],
   selectedIncident: null,
   selectedMarker: null
 })
@@ -17,6 +18,10 @@ export const mutations = {
   },
   setSelectedMarker(state, id) {
     state.selectedMarker = id
+  },
+  sortIncidents(state) {
+    const sorted = state.incidents.items.sort((a, b) => new Date(b.date) - new Date(a.date));
+    state.sortedIncidents = sorted
   }
 }
 
