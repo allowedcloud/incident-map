@@ -9,9 +9,9 @@
           <div
             v-for="incident in sortedIncidents"
             :key="incident.id"
-            :id="incident.id + hello"
+            :id="incident.id + xxx"
             class="group flex flex-col px-12"
-            @click="click(incident.id)"
+            @click="clickIncident(incident.id)"
           >
             <template v-if="incident.id === selectedMarker">
               <div class="default border-yellow-400">
@@ -60,40 +60,10 @@
         </div>
       </tab>
       <tab title="Key">
-        <div class="flex flex-col gap-6 mt-20 select-none">
-          <div class="flex items-center gap-6">
-            <img src="/death.svg" alt="Homicide" class="w-12 h-12 rounded-full border-2 border-gray-600" />
-            <p class="text-xl font-bold">Homicide</p>
-          </div>
-          <div class="flex items-center gap-6">
-            <img src="/ak.svg" alt="Confrontation" class="w-12 h-12 rounded-full border-2 border-gray-600" />
-            <p class="text-xl font-bold">Confrontation</p>
-          </div>
-          <div class="flex items-center gap-6">
-            <img src="/drugs.svg" alt="Drugs" class="w-12 h-12 rounded-full border-2 border-gray-600" />
-            <p class="text-xl font-bold">Drug trafficking</p>
-          </div>
-          <div class="flex items-center gap-6">
-            <img src="/arrest.svg" alt="arrest" class="w-12 h-12 rounded-full border-2 border-gray-600" />
-            <p class="text-xl font-bold">Apprehension</p>
-          </div>
-          <div class="flex items-center gap-6">
-            <img src="/kidnap.png" alt="Kidnapping" class="w-12 h-12 rounded-full border-2 border-gray-600" />
-            <p class="text-xl font-bold">Kidnapping</p>
-          </div>
-        </div>
+        <Key />
       </tab>
       <tab title="About">
-        <p class="mt-20 px-6">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum
-          vel pellentesque nisi, vel dapibus sapien. Donec pharetra felis eu
-          velit euismod dictum. Mauris elementum efficitur ipsum, id vulputate
-          nunc imperdiet nec. Nullam vitae libero sed tortor lobortis maximus.
-          Mauris euismod, mi a condimentum cursus, mi nulla consectetur dui, at
-          suscipit neque tellus mattis mauris. Aliquam neque dui, consequat eu
-          enim at, fermentum luctus ipsum. Sed id congue tortor. In dignissim
-          sed urna faucibus pharetra.
-        </p>
+        <About />
       </tab>
     </tabs>
   </div>
@@ -108,7 +78,7 @@ export default {
       incidents: [],
       selectedMarker: "",
       selectedIncident: "",
-      hello: "hello",
+      xxx: "xxx",
     };
   },
   computed: {
@@ -126,14 +96,11 @@ export default {
       });
       this.incidents = incidents.data.listIncidents.items;
     },
-    click(id) {
+    clickIncident(id) {
       this.selectedIncident = id;
       this.$router.push({ path: "?id=" + id });
       this.$store.dispatch("incidents/getSelectedIncident", id);
     },
-    sortByMonth(month) {
-      console.log(month)
-    }
   },
   mounted() {
     this.getIncidents();
@@ -142,7 +109,7 @@ export default {
       if (mutation.type === "incidents/setSelectedMarker") {
         this.selectedMarker = mutation.payload;
         const element = document.querySelector(
-          `#${CSS.escape(mutation.payload)}hello`
+          `#${CSS.escape(mutation.payload)}xxx`
         );
 
         function scrollIfNeeded(element, container) {
