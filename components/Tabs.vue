@@ -43,7 +43,7 @@ export default {
 <style lang="scss">
 ul.tabs__header {
   @apply absolute;
-  @apply right-14;
+  @apply right-2;
   @apply top-2;
   list-style: none;
 
@@ -52,12 +52,12 @@ ul.tabs__header {
     cursor: pointer;
     @apply select-none;
     @apply text-lg;
-    margin: 0;
-    margin-right: 5px;
+    margin: 0 5px 0 5px;
   }
   .tab__selected {
     font-weight: 600;
     text-decoration: underline;
+    @apply text-yellow-500;
   }
 }
 </style>
