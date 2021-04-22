@@ -206,7 +206,10 @@ export default {
           query: mutations.deleteIncident,
           variables: { input: payload },
         });
-        this.getIncidents();
+        this.getIncidents;
+        this.sorted;
+        this.$store.dispatch("incidents/getIncidents")
+        this.$store.commit("incident/sortIncidents")
       } else {
         console.log("CANCELED");
       }
