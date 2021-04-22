@@ -36,6 +36,7 @@
                   'Apprehension',
                   'Kidnapping',
                   'Narco-message',
+                  'Military'
                 ]"
               />
               <FormulateInput

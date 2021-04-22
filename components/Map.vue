@@ -52,11 +52,13 @@ export default {
       } else if (incident.type === "Drug Trafficking") {
         element.style.backgroundImage = "url(/drugs.svg)";
       } else if (incident.type === "Apprehension") {
-        element.style.backgroundImage = "url(/apprehension.svg)";
+        element.style.backgroundImage = "url(/handcuffs.svg)";
       } else if (incident.type === "Kidnapping") {
         element.style.backgroundImage = "url(/kidnapping.svg)";
       } else if (incident.type === "Narco-message") {
         element.style.backgroundImage = "url(/narco-message.svg)";
+      } else if (incident.type === "Military") {
+        element.style.backgroundImage = "url(/jeep.svg)"
       }
 
       element.style.width = "40px";

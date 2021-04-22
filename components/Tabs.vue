@@ -51,13 +51,15 @@ ul.tabs__header {
     display: inline-block;
     cursor: pointer;
     @apply select-none;
+    @apply underline;
     @apply text-lg;
+    @apply text-gray-700;
     margin: 0 5px 0 5px;
   }
   .tab__selected {
     font-weight: 600;
-    text-decoration: underline;
     @apply text-yellow-500;
+    text-decoration: none;
   }
 }
 </style>

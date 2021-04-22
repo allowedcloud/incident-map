@@ -1,7 +1,7 @@
 <template>
   <div class="m-12 mx-36">
     <h1 class="text-3xl font-bold border-b-2 border-gray-300 mb-6">
-      Add Incident
+      Add Activity
     </h1>
     <div class="flex flex-col h-screen items-center add-incident">
       <FormulateForm
@@ -15,7 +15,6 @@
               type="text"
               name="title"
               label="Title"
-              placeholder="Title"
               validation="required"
               class="title"
             />
@@ -31,6 +30,7 @@
                 'Apprehension',
                 'Kidnapping',
                 'Narco-message',
+                'Military'
               ]"
             />
             <FormulateInput

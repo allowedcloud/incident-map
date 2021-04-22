@@ -16,7 +16,7 @@
             <template v-if="incident.id === selectedMarker">
               <div class="default border-yellow-400">
                 <div class="flex justify-between">
-                  <div class="font-mono text-gray-400 text-sm">
+                  <div class="font-mono font-bold text-yellow-400 text-sm">
                     {{ incident.date }}
                   </div>
                   <div

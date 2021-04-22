@@ -26,7 +26,7 @@
     </div>
     <div class="flex items-center gap-6">
       <img
-        src="/apprehension.svg"
+        src="/handcuffs.svg"
         alt="arrest"
         class="w-12 h-12 rounded-full border-2 border-gray-600"
       />
@@ -47,6 +47,14 @@
         class="w-12 h-12 rounded-full border-2 border-gray-600"
       />
       <p class="text-xl font-bold">Narco-message</p>
+    </div>
+    <div class="flex items-center gap-6">
+      <img
+        src="/jeep.svg"
+        alt="Military"
+        class="w-12 h-12 rounded-full border-2 border-gray-600"
+      />
+      <p class="text-xl font-bold">Military</p>
     </div>
   </div>
 </template>
