@@ -24,7 +24,14 @@
               type="select"
               name="type"
               label="Type"
-              :options="['Confrontation', 'Execution']"
+              :options="[
+                'Confrontation',
+                'Homicide',
+                'Drug Trafficking',
+                'Apprehension',
+                'Kidnapping',
+                'Narco-message',
+              ]"
             />
             <FormulateInput
               type="date"

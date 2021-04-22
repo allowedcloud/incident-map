@@ -1,6 +1,8 @@
 <template>
   <div class="m-12">
-    <h1 class="text-3xl font-bold border-b-2 border-gray-300 mx-24">Edit Activities</h1>
+    <h1 class="text-3xl font-bold border-b-2 border-gray-300 mx-24">
+      Edit Activities
+    </h1>
     <div class="m-6 flex justify-center">
       <div class="grid grid-cols-2 gap-12">
         <div
@@ -27,7 +29,14 @@
                 type="select"
                 name="type"
                 v-model="incident.type"
-                :options="['Confrontation', 'Execution']"
+                :options="[
+                  'Confrontation',
+                  'Homicide',
+                  'Drug Trafficking',
+                  'Apprehension',
+                  'Kidnapping',
+                  'Narco-message',
+                ]"
               />
               <FormulateInput
                 type="date"
@@ -151,9 +160,11 @@ export default {
       return this.$store.state.auth?.cognitoUser || "Unknown User";
     },
     sorted() {
-      const sort = this.incidents.sort((a, b) => new Date(b.date) - new Date(a.date))
+      const sort = this.incidents.sort(
+        (a, b) => new Date(b.date) - new Date(a.date)
+      );
       this.incidents = sort;
-    }
+    },
   },
   mounted() {
     this.getIncidents();
@@ -164,8 +175,9 @@ export default {
         query: listIncidents,
       });
       this.incidents = incidents.data.listIncidents.items;
-      this.incidents = this.incidents.sort((a, b) => new Date(b.date) - new Date(a.date))
-
+      this.incidents = this.incidents.sort(
+        (a, b) => new Date(b.date) - new Date(a.date)
+      );
     },
     editEvent(id) {
       this.editing = id;
@@ -182,8 +194,8 @@ export default {
       this.editing = "";
       this.getIncidents;
       this.sorted;
-      this.$store.dispatch('incidents/getIncidents')
-      this.$store.commit('incidents/sortIncidents')
+      this.$store.dispatch("incidents/getIncidents");
+      this.$store.commit("incidents/sortIncidents");
     },
     deleteIncident(id, title) {
       const payload = {

@@ -2,7 +2,7 @@
   <div class="flex flex-col gap-6 mt-20 select-none">
     <div class="flex items-center gap-6">
       <img
-        src="/death.svg"
+        src="/homicide.svg"
         alt="Homicide"
         class="w-12 h-12 rounded-full border-2 border-gray-600"
       />
@@ -26,7 +26,7 @@
     </div>
     <div class="flex items-center gap-6">
       <img
-        src="/arrest.svg"
+        src="/apprehension.svg"
         alt="arrest"
         class="w-12 h-12 rounded-full border-2 border-gray-600"
       />
@@ -34,7 +34,7 @@
     </div>
     <div class="flex items-center gap-6">
       <img
-        src="/kidnap.png"
+        src="/kidnapping.svg"
         alt="Kidnapping"
         class="w-12 h-12 rounded-full border-2 border-gray-600"
       />
