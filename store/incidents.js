@@ -1,5 +1,6 @@
 import { API } from 'aws-amplify'
-import {listIncidents} from "../src/graphql/queries"
+import { listIncidents } from "../src/graphql/queries"
+import { createIncident } from "../src/graphql/mutations"
 
 
 export const state = () => ({
@@ -26,16 +27,30 @@ export const mutations = {
 }
 
 export const actions = {
-  async add({ commit }) {
+  // Get incidents from AppSync
+  async getIncidents({ commit }) {
     try {
       const list = await API.graphql({ query: listIncidents })
-
       commit('setIncidents', list.data.listIncidents)
-
       return Promise.resolve(list)
     } catch (error) {
       return Promise.resolve(null)
     }
+  },
+  addIncident({dispatch, commit}, payload) {
+    API.graphql({
+      query: createIncident,
+      variables: {
+        input: payload
+      }
+    })
+    dispatch('getIncidents')
+  },
+  updateIncident() {
+    
+  },
+  deleteIncident() {
+
   },
   getSelectedIncident({ commit }, id) {
     commit('setSelectedIncident', id)

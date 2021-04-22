@@ -3,9 +3,7 @@
     <h1 class="text-3xl font-bold border-b-2 border-gray-300 mb-6">
       Add Incident
     </h1>
-    <div
-      class="flex flex-col h-screen items-center add-incident"
-    >
+    <div class="flex flex-col h-screen items-center add-incident">
       <FormulateForm
         name="add"
         @submit="addIncident"
@@ -127,9 +125,6 @@
 </template>
 
 <script>
-import { API } from "aws-amplify";
-import { createIncident } from "../src/graphql/mutations";
-
 export default {
   name: "Add",
   data() {
@@ -138,13 +133,8 @@ export default {
     };
   },
   methods: {
-    async addIncident(data) {
-      await API.graphql({
-        query: createIncident,
-        variables: {
-          input: data,
-        },
-      });
+    addIncident(payload) {
+      this.$store.dispatch("incidents/addIncident", payload);
       this.$formulate.reset("add");
     },
   },

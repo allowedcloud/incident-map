@@ -150,6 +150,10 @@ export default {
     getUser() {
       return this.$store.state.auth?.cognitoUser || "Unknown User";
     },
+    sorted() {
+      const sort = this.incidents.sort((a, b) => new Date(b.date) - new Date(a.date))
+      this.incidents = sort;
+    }
   },
   mounted() {
     this.getIncidents();
@@ -160,6 +164,8 @@ export default {
         query: listIncidents,
       });
       this.incidents = incidents.data.listIncidents.items;
+      this.incidents = this.incidents.sort((a, b) => new Date(b.date) - new Date(a.date))
+
     },
     editEvent(id) {
       this.editing = id;
@@ -174,7 +180,10 @@ export default {
         variables: { input: payload },
       });
       this.editing = "";
-      this.getIncidents();
+      this.getIncidents;
+      this.sorted;
+      this.$store.dispatch('incidents/getIncidents')
+      this.$store.commit('incidents/sortIncidents')
     },
     deleteIncident(id, title) {
       const payload = {

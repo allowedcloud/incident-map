@@ -14,7 +14,7 @@ export default {
   },
   computed: {
     list() {
-      return this.$store.state.incidents;
+      return this.$store.state.incidents.sortedIncidents;
     }
   },
   mounted() {
@@ -28,7 +28,7 @@ export default {
       zoom: 5,
     });
 
-    this.markers = this.list.incidents.items.map((incident) => {
+    this.markers = this.list.map((incident) => {
       const LngLat = [incident.long, incident.lat];
       const lat = String(incident.lat).slice(0,5)
       const long = String(incident.long).slice(0,6)

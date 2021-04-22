@@ -40,6 +40,14 @@
       />
       <p class="text-xl font-bold">Kidnapping</p>
     </div>
+    <div class="flex items-center gap-6">
+      <img
+        src="/narco-message.svg"
+        alt="Narco-message"
+        class="w-12 h-12 rounded-full border-2 border-gray-600"
+      />
+      <p class="text-xl font-bold">Narco-message</p>
+    </div>
   </div>
 </template>
 
