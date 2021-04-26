@@ -53,15 +53,7 @@
         </div>
       </tab>
       <tab title="Date">
-        <div class="flex flex-col gap-6 mt-20">
-          <h1 class="text-lg font-bold font-mono">2021</h1>
-          <div
-            @click="sortByMonth('April')"
-            class="underline text-blue-500 cursor-pointer"
-          >
-            April
-          </div>
-        </div>
+        <Date />
       </tab>
       <tab title="Key">
         <Key />
@@ -84,8 +76,8 @@ export default {
   },
   computed: {
     incidents() {
-      this.$store.commit("incidents/sortIncidents")
-      return this.$store.state.incidents.sortedIncidents;
+      // this.$store.commit("incidents/sortIncidents")
+      return this.$store.state.incidents.sortedByMonth;
     },
   },
   methods: {

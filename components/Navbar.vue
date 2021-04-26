@@ -23,7 +23,7 @@
       <NuxtLink v-if="isAuthenticated" to="/add">
         <img src="/plus.svg" alt="Add" class="h-6 w-6">
       </NuxtLink>
-      <NuxtLink v-if="isAuthenticated" to="/edit">
+      <NuxtLink to="/edit">
         <img src="/edit.svg" alt="Edit" class="h-6 w-6">
       </NuxtLink>
       <NuxtLink v-if="isAuthenticated" :to="'/users/' + getUser">

@@ -196,7 +196,6 @@ export default {
       this.getIncidents;
       this.sorted;
       this.$store.dispatch("incidents/getIncidents");
-      this.$store.commit("incidents/sortIncidents");
     },
     deleteIncident(id, title) {
       const payload = {
@@ -210,7 +209,6 @@ export default {
         this.getIncidents;
         this.sorted;
         this.$store.dispatch("incidents/getIncidents")
-        this.$store.commit("incident/sortIncidents")
       } else {
         console.log("CANCELED");
       }

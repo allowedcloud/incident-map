@@ -1,61 +1,71 @@
-import { API } from 'aws-amplify'
-import { listIncidents } from "../src/graphql/queries"
-import { createIncident } from "../src/graphql/mutations"
-
+import { API } from "aws-amplify";
+import { listIncidents } from "../src/graphql/queries";
+import { createIncident } from "../src/graphql/mutations";
+import dayjs from "dayjs";
 
 export const state = () => ({
   incidents: [],
-  sortedIncidents: [],
+  sortedByMonth: [],
   selectedIncident: null,
-  selectedMarker: null
-})
+  selectedMarker: null,
+});
 
 export const mutations = {
   setIncidents(state, list) {
-    state.incidents = list
+    const sorted = list.items.sort(
+      (a, b) => new Date(b.date) - new Date(a.date)
+    );
+    state.incidents = sorted
+    state.sortedByMonth = sorted
   },
   setSelectedIncident(state, id) {
-    state.selectedIncident = id
+    state.selectedIncident = id;
   },
   setSelectedMarker(state, id) {
-    state.selectedMarker = id
+    state.selectedMarker = id;
   },
-  sortIncidents(state) {
-    const sorted = state.incidents.items.sort((a, b) => new Date(b.date) - new Date(a.date));
-    state.sortedIncidents = sorted
+  set(state, payload) {
+    state.sortedByMonth = payload
   }
-}
+};
 
 export const actions = {
   // Get incidents from AppSync
   async getIncidents({ commit }) {
     try {
-      const list = await API.graphql({ query: listIncidents })
-      commit('setIncidents', list.data.listIncidents)
-      return Promise.resolve(list)
+      const list = await API.graphql({ query: listIncidents });
+      commit("setIncidents", list.data.listIncidents);
+      return Promise.resolve(list);
     } catch (error) {
-      return Promise.resolve(null)
+      return Promise.resolve(null);
     }
   },
-  addIncident({dispatch, commit}, payload) {
+  addIncident({ dispatch }, payload) {
     API.graphql({
       query: createIncident,
       variables: {
-        input: payload
-      }
-    })
-    dispatch('getIncidents')
+        input: payload,
+      },
+    });
+    dispatch("getIncidents");
   },
-  updateIncident() {
-    
-  },
-  deleteIncident() {
-
-  },
+  updateIncident() {},
+  deleteIncident() {},
   getSelectedIncident({ commit }, id) {
-    commit('setSelectedIncident', id)
+    commit("setSelectedIncident", id);
   },
   getSelectedMarker({ commit }, id) {
-    commit('setSelectedMarker', id)
-  }
-}
+    commit("setSelectedMarker", id);
+  },
+  sortByMonth({ state, commit, dispatch }, month) {
+    if (month === "April") {
+      const sorted = state.incidents.filter((incident) => dayjs(incident.date).month() == "3")
+      commit("set", sorted)
+    } else if (month === "May") {
+      const sorted = state.incidents.filter(
+        (incident) => dayjs(incident.date).month() == "4"
+      );
+      commit("set", sorted)
+    }
+  },
+};

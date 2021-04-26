@@ -3,6 +3,7 @@
 </template>
 
 <script>
+import dayjs from "dayjs";
 export default {
   name: "Map",
   data() {
@@ -14,12 +15,13 @@ export default {
   },
   computed: {
     list() {
-      return this.$store.state.incidents.sortedIncidents;
+      return this.$store.state.incidents.incidents;
     },
   },
   mounted() {
     const mapboxgl = require("mapbox-gl");
 
+    // Create map
     this.map = new mapboxgl.Map({
       accessToken: process.env.mapboxToken,
       container: "map",
@@ -28,23 +30,32 @@ export default {
       zoom: 5,
     });
 
+    // Create markers
     this.markers = this.list.map((incident) => {
+      // Assign latitude and longitude
       const LngLat = [incident.long, incident.lat];
-      const lat = String(incident.lat).slice(0, 5);
-      const long = String(incident.long).slice(0, 6);
+      // Create popup
       let popup = `
         <div class="m-4">
-          <p class="text-xs uppercase text-gray-500 font-bold">${incident.state}</p>
-          <p class="text-xs uppercase text-gray-400 font-bold mb-8">${incident.date}</p>
+          <p class="text-xs uppercase text-gray-500 font-bold">${
+            incident.state
+          }</p>
+          <p class="text-xs uppercase text-gray-400 font-bold mb-8">${
+            incident.date
+          }</p>
           <h3 class="font-bold">${incident.title}</h3>
-          <p class="flex flex-row flex-nowrap text-red-500 text-xs font-mono font-bold">${lat}, ${long}</p>
+          <p class="flex flex-row flex-nowrap text-red-500 text-xs font-mono font-bold">${String(
+            incident.lat
+          ).slice(0, 5)}, ${String(incident.long).slice(0, 7)}</p>
           <p class="text-sm text-gray-200">${incident.description}</p>
         </div>
       `;
 
+      // Create map markers
       const element = document.createElement("div");
       element.className = "marker";
-
+      
+      // Choose marker icon
       if (incident.type === "Confrontation") {
         element.style.backgroundImage = "url(/ak.svg)";
       } else if (incident.type === "Homicide") {
@@ -58,7 +69,7 @@ export default {
       } else if (incident.type === "Narco-message") {
         element.style.backgroundImage = "url(/narco-message.svg)";
       } else if (incident.type === "Military") {
-        element.style.backgroundImage = "url(/jeep.svg)"
+        element.style.backgroundImage = "url(/jeep.svg)";
       }
 
       element.style.width = "40px";
@@ -71,10 +82,12 @@ export default {
         "border-gray-600",
         "bg-contain"
       );
+
+      // Click marker
       element.addEventListener("click", (e) => {
-        if (this.selectedMarker) {
+        /* if (this.selectedMarker) {
           this.selectedMarker.classList.remove("hidden");
-        }
+        } */
         this.selectedMarker = e.target;
         this.selectedMarker.id = incident.id;
         this.$store.dispatch(
@@ -85,26 +98,32 @@ export default {
         this.map.flyTo({ center: LngLat, speed: 0.5, zoom: 6 });
       });
 
+      // Initialize popup element
       const popupElement = new mapboxgl.Popup({
         offset: 0,
         anchor: "bottom",
       }).setHTML(popup);
 
+      // Unhide marker when closing popup
       popupElement.on("close", () => {
         if (this.selectedMarker) {
           this.selectedMarker.classList.remove("hidden");
         }
       });
-
+      
+      // Initialize map
       const marker = new mapboxgl.Marker({ element })
         .setLngLat(LngLat)
         .setPopup(popupElement)
         .addTo(this.map);
-
+      
+      // Add incident date to marker object
+      marker.date = incident.date;
+      // Add incident ID to marker object
       marker.id = incident.id;
       return marker;
     });
-    const unsubscribe = this.$store.subscribe((mutation) => {
+    this.$store.subscribe((mutation) => {
       if (mutation.type == "incidents/setSelectedIncident") {
         const id = mutation.payload;
         const marker = this.markers.find((marker) => marker.id === id);
@@ -116,14 +135,61 @@ export default {
             marker.togglePopup();
             marker._element.classList.remove("hidden");
           }
+          popup.on("close", () => {
+            marker._element.classList.remove("hidden")
+          })
         });
 
         marker.togglePopup();
         marker._element.classList.add("hidden");
       }
     });
+    this.$store.subscribeAction((action) => {
+      if (action.type == "incidents/sortByMonth") {
+        const month = action.payload;
+        if (month === "April") {
+          this.closeAllPopups();
+          this.selectedMarker = ""
+          this.markers.forEach((marker) => {
+            if (dayjs(marker.date).month() !== 3) {
+              marker._element.classList.add("hidden");
+            } else {
+              marker._element.classList.remove("hidden");
+            }
+          });
+        } else if (month === "May") {
+          this.closeAllPopups();
+          this.selectedMarker = ""
+          this.markers.forEach((marker) => {
+            if (dayjs(marker.date).month() !== 4) {
+              marker._element.classList.add("hidden");
+            } else {
+              marker._element.classList.remove("hidden");
+            }
+          });
+        }
+      }
+    });
   },
-  methods: {},
+  methods: {
+    closeAllPopups() {
+      this.markers.forEach((marker) => {
+        const popup = marker.getPopup();
+        if (popup.isOpen()) {
+          marker.togglePopup();
+        }
+      });
+    },
+    showAllMarkers() {
+      this.markers.forEach((marker) => {
+        marker._element.classList.remove("hidden");
+        const popup = marker.getPopup();
+        if (popup.isOpen()) {
+          marker.togglePopup();
+        }
+      });
+    },
+  },
 };
 </script>
 
