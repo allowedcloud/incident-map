@@ -76,7 +76,7 @@ export default {
   },
   computed: {
     incidents() {
-      // this.$store.commit("incidents/sortIncidents")
+      // this.$store.dispatch("incidents/getIncidents")
       return this.$store.state.incidents.sortedByMonth;
     },
   },
