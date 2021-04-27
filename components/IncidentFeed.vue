@@ -22,10 +22,12 @@
                   <div
                     class="flex flex-nowrap items-center bg-yellow-400 rounded-lg p-1"
                   >
-                    <img src="/external-link.svg" class="w-4 h-4" />
+                    <a :href="incident.primarySource" target="_blank">
+                      <img src="/external-link.svg" class="w-4 h-4" />
+                    </a>
                   </div>
                 </div>
-                <div class="text-xl font-bold">{{ incident.title }}</div>
+                <div class="text-xl font-bold w-3/4">{{ incident.title }}</div>
                 <div class="text-yellow-500 text-sm">{{ incident.state }}</div>
                 <div class="text-gray-500">{{ incident.description }}</div>
               </div>
@@ -39,10 +41,12 @@
                   <div
                     class="flex flex-nowrap items-center bg-gray-100 incident hover:bg-gray-200 rounded-lg p-1"
                   >
+                  <a :href="incident.primarySource" target="_blank">
                     <img src="/external-link.svg" class="w-4 h-4" />
+                  </a>
                   </div>
                 </div>
-                <div class="text-xl font-bold">{{ incident.title }}</div>
+                <div class="text-xl font-bold w-3/4">{{ incident.title }}</div>
                 <div class="text-gray-500 text-sm group-hover:text-yellow-400">
                   {{ incident.state }}
                 </div>
@@ -88,7 +92,7 @@ export default {
     },
   },
   mounted() {
-    const unsubscribe = this.$store.subscribe((mutation) => {
+    this.$store.subscribe((mutation) => {
       if (mutation.type === "incidents/setSelectedMarker") {
         this.selectedMarker = mutation.payload;
         const element = document.querySelector(

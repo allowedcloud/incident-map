@@ -110,9 +110,19 @@
 
               <FormulateInput
                 type="text"
-                name="sources"
+                name="primarySource"
                 validation="required|url"
-                v-model="incident.sources"
+                v-model="incident.primarySource"
+              />
+              <FormulateInput
+                type="text"
+                name="secondarySource"
+                v-model="incident.secondarySource"
+              />
+              <FormulateInput
+                type="text"
+                name="thirdSource"
+                v-model="incident.thirdSource"
               />
             </FormulateForm>
           </template>

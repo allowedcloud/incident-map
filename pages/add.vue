@@ -143,9 +143,22 @@ export default {
   },
   methods: {
     addIncident(payload) {
+      const _ = require("lodash");  
+      payload.primarySource = payload.sources[0].link
+      payload.secondarySource = payload.sources[1].link
+      payload.thirdSource = payload.sources[2].link
+      payload = _.omit(payload, ['sources'])
       this.$store.dispatch("incidents/addIncident", payload);
       this.$formulate.reset("add");
     },
+    addTest(payload) {
+      const _ = require("lodash");  
+      payload.primarySource = payload.sources[0].link
+      payload.secondarySource = payload.sources[1].link
+      payload.thirdSource = payload.sources[2].link
+      payload = _.omit(payload, ['sources'])
+      console.log(payload)
+    }
   },
   middleware: "authenticated",
 };

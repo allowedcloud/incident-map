@@ -6,6 +6,8 @@ type Incident @model {
   state: String!
   lat: Float!
   long: Float!
-  sources: String!
   type: String!
+  primarySource: String!
+  secondarySource: String
+  thirdSource: String
 }

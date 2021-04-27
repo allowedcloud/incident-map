@@ -11,8 +11,10 @@ export const onCreateIncident = /* GraphQL */ `
       state
       lat
       long
-      sources
       type
+      primarySource
+      secondarySource
+      thirdSource
       createdAt
       updatedAt
     }
@@ -28,8 +30,10 @@ export const onUpdateIncident = /* GraphQL */ `
       state
       lat
       long
-      sources
       type
+      primarySource
+      secondarySource
+      thirdSource
       createdAt
       updatedAt
     }
@@ -45,8 +49,10 @@ export const onDeleteIncident = /* GraphQL */ `
       state
       lat
       long
-      sources
       type
+      primarySource
+      secondarySource
+      thirdSource
       createdAt
       updatedAt
     }
