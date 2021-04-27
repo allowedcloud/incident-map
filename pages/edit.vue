@@ -83,6 +83,7 @@
                   'Querétaro',
                   'Quintana Roo',
                   'San Luis Potosí',
+                  'Sonora',
                   'Sinaloa',
                   'Tabasco',
                   'Tamaulipas',
