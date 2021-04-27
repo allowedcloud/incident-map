@@ -1,5 +1,6 @@
 <template>
   <div>
+    <Info />
     <tabs>
       <tab title="Activities">
         <div

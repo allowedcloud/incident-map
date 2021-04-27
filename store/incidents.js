@@ -6,6 +6,7 @@ import dayjs from "dayjs";
 export const state = () => ({
   incidents: [],
   sortedByMonth: [],
+  selectedMonth: "",
   selectedIncident: null,
   selectedMarker: null,
 });
@@ -26,6 +27,9 @@ export const mutations = {
   },
   set(state, payload) {
     state.sortedByMonth = payload
+  },
+  selectedMonth(state, month) {
+    state.selectedMonth = month
   }
 };
 
@@ -57,15 +61,17 @@ export const actions = {
   getSelectedMarker({ commit }, id) {
     commit("setSelectedMarker", id);
   },
-  sortByMonth({ state, commit, dispatch }, month) {
+  sortByMonth({ state, commit }, month) {
     if (month === "April") {
       const sorted = state.incidents.filter((incident) => dayjs(incident.date).month() == "3")
       commit("set", sorted)
+      commit("selectedMonth", month)
     } else if (month === "May") {
       const sorted = state.incidents.filter(
         (incident) => dayjs(incident.date).month() == "4"
       );
       commit("set", sorted)
+      commit("selectedMonth", month)
     }
   },
 };
