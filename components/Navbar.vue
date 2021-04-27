@@ -4,15 +4,6 @@
       <img src="/warning.svg" class="w-6">
       <span class="text-xl font-bold ml-1 select-none">Significant Activities Map</span>
     </div>
-    <!-- <div class="links mr-2">
-      <NuxtLink to="/">Home</NuxtLink>
-      <NuxtLink v-if="isAuthenticated" to="/add">Add</NuxtLink>
-      <NuxtLink v-if="!isAuthenticated" to="/login">Login</NuxtLink>
-      <button v-if="isAuthenticated" @click="logout" class="underline">Logout</button>
-      <span v-if="isAuthenticated"> | </span>
-      <span v-if="isAuthenticated">Hello </span>
-      <NuxtLink v-if="isAuthenticated" :to="'/users/' + getUser">{{ getUser }}</NuxtLink>
-    </div> -->
     <div class="flex flex-row mr-2 gap-4">
       <NuxtLink to="/">
         <img src="/home.svg" alt="Home" class="h-6 w-6">
@@ -23,7 +14,7 @@
       <NuxtLink v-if="isAuthenticated" to="/add">
         <img src="/plus.svg" alt="Add" class="h-6 w-6">
       </NuxtLink>
-      <NuxtLink to="/edit">
+      <NuxtLink v-if="isAuthenticated" to="/edit">
         <img src="/edit.svg" alt="Edit" class="h-6 w-6">
       </NuxtLink>
       <NuxtLink v-if="isAuthenticated" :to="'/users/' + getUser">
