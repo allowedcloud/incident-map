@@ -4,7 +4,7 @@
       <a href="#" class="underline ml-1">Source Code</a>
       <NuxtLink to="/contact" class="underline ml-1">Contact</NuxtLink>
       <span class="mx-1">·</span>
-      Incident Map 2021
+      Significant Activities Map 2021
     </p>
   </div>
 </template>

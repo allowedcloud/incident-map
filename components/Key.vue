@@ -56,6 +56,14 @@
       />
       <p class="text-xl font-bold">Military</p>
     </div>
+    <div class="flex items-center gap-6">
+      <img
+        src="/video-message.svg"
+        alt="Recorded video"
+        class="w-12 h-12 rounded-full border-2 border-gray-600"
+      />
+      <p class="text-xl font-bold">Recorded video</p>
+    </div>
   </div>
 </template>
 

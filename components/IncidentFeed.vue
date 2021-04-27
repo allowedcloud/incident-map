@@ -1,7 +1,7 @@
 <template>
   <div>
     <tabs>
-      <tab title="Incidents">
+      <tab title="Activities">
         <div
           id="container"
           class="h-48 md:h-60 incident-container overflow-y-scroll w-full mt-10"

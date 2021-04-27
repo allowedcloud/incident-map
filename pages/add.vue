@@ -30,7 +30,8 @@
                 'Apprehension',
                 'Kidnapping',
                 'Narco-message',
-                'Military'
+                'Military',
+                'Recorded video'
               ]"
             />
             <FormulateInput

@@ -70,6 +70,8 @@ export default {
         element.style.backgroundImage = "url(/narco-message.svg)";
       } else if (incident.type === "Military") {
         element.style.backgroundImage = "url(/jeep.svg)";
+      } else if (incident.type === "Recorded video") {
+        element.style.backgroundImage = "url(/video-message.svg)"
       }
 
       element.style.width = "40px";
@@ -80,7 +82,8 @@ export default {
         "m-1",
         "border-2",
         "border-gray-600",
-        "bg-contain"
+        "bg-contain",
+        "hover:border-gray-400"
       );
 
       // Click marker
