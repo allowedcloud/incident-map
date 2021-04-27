@@ -21,15 +21,3 @@ export default {
   } 
 };
 </script>
-
-<style>
-textarea {
-  height: 150px;
-}
-.formulate-input-error {
-  @apply text-red-500;
-  @apply text-sm;
-}
-
-</style>
-

@@ -1,16 +1,18 @@
 <template>
   <div class="flex h-screen items-center place-content-center">
-    <FormulateForm @submit="login" class="border-2 border-indigo-200 p-6 rounded-md shadow-lg">
-      <h2 class="text-2xl font-bold border-b-2 border-indigo-200 pb-2 mb-2">Login</h2>
+    <FormulateForm @submit="login" class="border-2 border-yellow-400 p-10 rounded-md shadow-lg">
+      <h2 class="text-2xl font-bold border-b-2 border-yellow-400 pb-2 mb-4">Login</h2>
       <FormulateInput
         type="text"
         name="username"
         label="Username"
+        validation="required"
       />
       <FormulateInput
         type="password"
         name="password"
         label="Password"
+        validation="required"
       />
       <FormulateInput
         type="submit"
@@ -68,7 +70,7 @@ label {
     margin: 5px 0;
 }
 .submit-button {
-    @apply bg-indigo-200;
+    @apply bg-yellow-400;
     @apply p-2;
     @apply my-2;
     @apply rounded-md;
