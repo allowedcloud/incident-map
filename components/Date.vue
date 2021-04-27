@@ -1,6 +1,9 @@
 <template>
   <div class="flex flex-col gap-6 mt-20">
-    <h1 class="text-lg font-bold font-mono">2021</h1>
+    <div class="flex items-center gap-4">
+      <h1 class="text-lg font-bold font-mono">2021</h1>
+      <div @click="reset" class="text-xs bg-yellow-300 text-yellow-700 p-1 rounded-md cursor-pointer">RESET</div>
+    </div>
     <div class="flex flex-wrap gap-4 w-96">
       <div @click="sortByMonth('April')" class="underline text-blue-500 cursor-pointer">
         April
@@ -40,6 +43,9 @@ export default {
   methods: {
     sortByMonth(month) {
       this.$store.dispatch("incidents/sortByMonth", month)
+    },
+    reset() {
+      this.$store.dispatch("incidents/getIncidents")
     }
   }
 }

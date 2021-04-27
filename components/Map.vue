@@ -148,6 +148,10 @@ export default {
       }
     });
     this.$store.subscribeAction((action) => {
+      if (action.type == "incidents/getIncidents") {
+        this.showAllMarkers()
+        this.$store.commit("incidents/selectedMonth", "total")
+      }
       if (action.type == "incidents/sortByMonth") {
         const month = action.payload;
         if (month === "April") {

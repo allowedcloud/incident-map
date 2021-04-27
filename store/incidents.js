@@ -6,7 +6,7 @@ import dayjs from "dayjs";
 export const state = () => ({
   incidents: [],
   sortedByMonth: [],
-  selectedMonth: "",
+  selectedMonth: "total",
   selectedIncident: null,
   selectedMarker: null,
 });
