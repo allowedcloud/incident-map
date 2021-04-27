@@ -161,7 +161,7 @@ import { API } from "aws-amplify";
 import { listIncidents } from "../src/graphql/queries";
 import * as mutations from "../src/graphql/mutations";
 export default {
-  // middleware: "authenticated",
+  middleware: "authenticated",
   data() {
     return {
       incidents: [],
