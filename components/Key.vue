@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col mt-20 select-none">
-    <div class="flex items-center gap-6">
+    <div class="flex items-center">
       <img
         src="/homicide.svg"
         alt="Homicide"
@@ -8,7 +8,7 @@
       />
       <p class="text-xl font-bold">Homicide</p>
     </div>
-    <div class="flex items-center gap-6">
+    <div class="flex items-center">
       <img
         src="/ak.svg"
         alt="Confrontation"
@@ -16,7 +16,7 @@
       />
       <p class="text-xl font-bold">Confrontation</p>
     </div>
-    <div class="flex items-center gap-6">
+    <div class="flex items-center">
       <img
         src="/drugs.svg"
         alt="Drugs"
@@ -24,7 +24,7 @@
       />
       <p class="text-xl font-bold">Drug trafficking</p>
     </div>
-    <div class="flex items-center gap-6">
+    <div class="flex items-center">
       <img
         src="/handcuffs.svg"
         alt="arrest"
@@ -32,7 +32,7 @@
       />
       <p class="text-xl font-bold">Apprehension</p>
     </div>
-    <div class="flex items-center gap-6">
+    <div class="flex items-center">
       <img
         src="/kidnapping.svg"
         alt="Kidnapping"
@@ -40,7 +40,7 @@
       />
       <p class="text-xl font-bold">Kidnapping</p>
     </div>
-    <div class="flex items-center gap-6">
+    <div class="flex items-center">
       <img
         src="/narco-message.svg"
         alt="Narco-message"
@@ -48,7 +48,7 @@
       />
       <p class="text-xl font-bold">Narco-message</p>
     </div>
-    <div class="flex items-center gap-6">
+    <div class="flex items-center">
       <img
         src="/jeep.svg"
         alt="Military"
@@ -56,7 +56,7 @@
       />
       <p class="text-xl font-bold">Military</p>
     </div>
-    <div class="flex items-center gap-6">
+    <div class="flex items-center">
       <img
         src="/video-message.svg"
         alt="Recorded video"
@@ -76,5 +76,8 @@ export default {
 <style scoped>
 div {
   margin-bottom: 2em;
+}
+img {
+  margin-right: 2em;
 }
 </style>
