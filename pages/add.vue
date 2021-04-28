@@ -1,13 +1,10 @@
 <template>
   <div class="m-12 mx-36">
-    <h1 class="text-3xl font-bold border-b-2 border-gray-300 mb-6">
-      Add Activity
-    </h1>
-    <div class="flex flex-col h-screen items-center add-incident">
+    <div class="flex flex-col items-center form-styles mt-10">
       <FormulateForm
         name="add"
         @submit="addIncident"
-        class="bg-gray-100 border-2 border-gray-200 p-8 shadow-lg rounded-lg"
+        class="bg-gray-100 border border-gray-300 p-8 shadow-lg rounded-lg"
       >
         <div class="grid grid-cols-6 form-grid">
           <div class="col-span-4">
@@ -136,13 +133,9 @@
 <script>
 export default {
   name: "Add",
+  middleware: "authenticated",
   head: {
     title: "Add activity"
-  },
-  data() {
-    return {
-      value: "What happens?",
-    };
   },
   methods: {
     addIncident(payload) {
@@ -153,22 +146,13 @@ export default {
       payload = _.omit(payload, ['sources'])
       this.$store.dispatch("incidents/addIncident", payload);
       this.$formulate.reset("add");
-    },
-    addTest(payload) {
-      const _ = require("lodash");  
-      payload.primarySource = payload.sources[0].link
-      payload.secondarySource = payload.sources[1].link
-      payload.thirdSource = payload.sources[2].link
-      payload = _.omit(payload, ['sources'])
-      console.log(payload)
     }
-  },
-  middleware: "authenticated",
+  }
 };
 </script>
 
 <style lang="scss">
-.add-incident {
+.form-styles {
   .lat-long {
     gap: 2em;
     grid-gap: 2em;
@@ -185,6 +169,7 @@ export default {
   .formulate-input-errors {
     @apply text-xs;
     @apply text-red-400;
+    @apply whitespace-nowrap;
   }
   .formulate-input-group-repeatable-remove {
     @apply text-xs;

@@ -91,6 +91,7 @@ export default {
         /* if (this.selectedMarker) {
           this.selectedMarker.classList.remove("hidden");
         } */
+        this.showAllMarkers()
         this.selectedMarker = e.target;
         this.selectedMarker.id = incident.id;
         this.$store.dispatch(
