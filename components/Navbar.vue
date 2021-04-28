@@ -5,12 +5,12 @@
       <span class="text-xl font-bold ml-1 select-none">Significant Activities Map</span>
     </div>
     <div class="flex flex-row mr-2 gap-4">
-      <NuxtLink to="/">
+      <NuxtLink to="/" v-if="isAuthenticated">
         <img src="/home.svg" alt="Home" class="h-6 w-6">
       </NuxtLink>
-      <NuxtLink v-if="!isAuthenticated" to="/login">
+      <!-- <NuxtLink v-if="!isAuthenticated" to="/login">
         <img src="/user.svg" alt="Login" class="h-6 w-6">
-      </NuxtLink>
+      </NuxtLink> -->
       <NuxtLink v-if="isAuthenticated" to="/add">
         <img src="/plus.svg" alt="Add" class="h-6 w-6">
       </NuxtLink>

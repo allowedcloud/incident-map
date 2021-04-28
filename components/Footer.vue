@@ -8,13 +8,14 @@
           theme: 'dark'
         }"
         content="The icons used on this website are from FlatIcon and SVGRepo. All icons are property of their respective owners."
-        class="underline ml-1"
+        class="underline ml-1 hover:no-underline"
         >
         Icons
       </button>
-      <NuxtLink to="/contact" class="underline ml-1">Contact</NuxtLink>
+      <NuxtLink to="/contact" class="underline ml-1 hover:no-underline">Contact</NuxtLink>
       <span class="mx-1">·</span>
-        <span class="font-bold">S.A.M</span> &nbsp; 2021
+      <a href="https://narco.news" class="font-bold text-yellow-500">narco.news</a>&nbsp;
+      <span class="font-bold select-none">SAM</span>
     </p>
   </div>
 </template>
