@@ -53,8 +53,6 @@ export const actions = {
     });
     dispatch("getIncidents");
   },
-  updateIncident() {},
-  deleteIncident() {},
   getSelectedIncident({ commit }, id) {
     commit("setSelectedIncident", id);
   },

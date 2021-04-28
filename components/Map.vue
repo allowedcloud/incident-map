@@ -43,11 +43,11 @@ export default {
           <p class="text-xs uppercase text-gray-400 font-bold mb-8">${
             incident.date
           }</p>
-          <h3 class="font-bold">${incident.title}</h3>
-          <p class="flex flex-row flex-nowrap text-red-500 text-xs font-mono font-bold">${String(
+          <h3 class="font-bold leading-snug">${incident.title}</h3>
+          <p class="flex flex-row flex-nowrap text-red-400 text-xs font-mono font-bold my-2">${String(
             incident.lat
           ).slice(0, 5)}, ${String(incident.long).slice(0, 7)}</p>
-          <p class="text-sm text-gray-200">${incident.description}</p>
+          <p class="text-sm text-gray-600 leading-tight">${incident.description}</p>
         </div>
       `;
 
@@ -88,17 +88,23 @@ export default {
 
       // Click marker
       element.addEventListener("click", (e) => {
-        /* if (this.selectedMarker) {
+        // Close all popups to allow new selected marker to hide
+        this.closeAllPopups()
+        // Remove hidden to show previously selected marker after clicking a new one
+        if (this.selectedMarker) {
           this.selectedMarker.classList.remove("hidden");
-        } */
-        this.showAllMarkers()
+        }
+        // Set new marker to selected marker
         this.selectedMarker = e.target;
         this.selectedMarker.id = incident.id;
+        // Send selected marker id to feed for highlighting
         this.$store.dispatch(
           "incidents/getSelectedMarker",
           this.selectedMarker.id
         );
+        // Hide new marker
         this.selectedMarker.classList.add("hidden");
+        // Fly map window over to new marker location
         this.map.flyTo({ center: LngLat, speed: 0.5, zoom: 6 });
       });
 
@@ -150,8 +156,13 @@ export default {
     });
     this.$store.subscribeAction((action) => {
       if (action.type == "incidents/getIncidents") {
+        // Reset button
         this.showAllMarkers()
         this.$store.commit("incidents/selectedMonth", "total")
+        this.map.flyTo({
+          center: [-99.133209, 19.432608],
+          zoom: 5,
+        })
       }
       if (action.type == "incidents/sortByMonth") {
         const month = action.payload;
@@ -228,10 +239,13 @@ button:focus {
   max-width: 300px;
 }
 .mapboxgl-popup-content {
-  @apply text-white bg-gray-800 px-6 pb-6 leading-snug text-lg rounded-lg;
+  @apply bg-gray-50 px-6 pb-6 leading-snug text-lg rounded-lg;
 }
 .mapboxgl-popup-close-button {
-  @apply text-3xl mt-2 mr-4;
+  @apply text-3xl mt-2 mr-4 text-gray-600;
+  &:hover {
+    @apply bg-gray-50;
+  }
 }
 .mapboxgl-popup-tip {
   border: 2rem solid transparent;
@@ -240,17 +254,17 @@ button:focus {
 .mapboxgl-popup-anchor-top .mapboxgl-popup-tip,
 .mapboxgl-popup-anchor-top-left .mapboxgl-popup-tip,
 .mapboxgl-popup-anchor-top-right .mapboxgl-popup-tip {
-  border-bottom-color: #1f2937;
+  border-bottom-color: #F9FAFB;
 }
 .mapboxgl-popup-anchor-bottom .mapboxgl-popup-tip,
 .mapboxgl-popup-anchor-bottom-left .mapboxgl-popup-tip,
 .mapboxgl-popup-anchor-bottom-right .mapboxgl-popup-tip {
-  border-top-color: #1f2937;
+  border-top-color: #F9FAFB;
 }
 .mapboxgl-popup-anchor-left .mapboxgl-popup-tip {
-  border-right-color: #1f2937;
+  border-right-color: #F9FAFB;
 }
 .mapboxgl-popup-anchor-right .mapboxgl-popup-tip {
-  border-left-color: #1f2937;
+  border-left-color: #F9FAFB;
 }
 </style>
