@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col gap-6 mt-20 select-none">
+  <div class="flex flex-col mt-20 select-none">
     <div class="flex items-center gap-6">
       <img
         src="/homicide.svg"
@@ -72,3 +72,9 @@ export default {
   name: "Key",
 };
 </script>
+
+<style scoped>
+div {
+  margin-bottom: 2em;
+}
+</style>

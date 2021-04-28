@@ -4,34 +4,34 @@
       <h1 class="text-lg font-bold font-mono">2021</h1>
       <div @click="reset" class="text-xs bg-yellow-300 text-yellow-700 p-1 rounded-md cursor-pointer">RESET</div>
     </div>
-    <div class="flex flex-wrap gap-4 w-96">
-      <div @click="sortByMonth('April')" class="underline text-blue-500 cursor-pointer">
+    <div class="flex flex-wrap w-96">
+      <button @click="sortByMonth('April')" class="underline text-blue-500 cursor-pointer">
         April
-      </div>
-      <div @click="sortByMonth('May')" class="underline text-blue-500 cursor-pointer">
+      </button>
+      <button @click="sortByMonth('May')" class="underline text-blue-500 cursor-pointer">
         May
-      </div>
-      <div class="text-gray-400 cursor-not-allowed">
+      </button>
+      <button class="text-gray-400 cursor-not-allowed">
         June
-      </div>
-      <div class="text-gray-400 cursor-not-allowed">
+      </button>
+      <button class="text-gray-400 cursor-not-allowed">
         July
-      </div>
-      <div class="text-gray-400 cursor-not-allowed">
+      </button>
+      <button class="text-gray-400 cursor-not-allowed">
         August
-      </div>
-      <div class="text-gray-400 cursor-not-allowed">
+      </button>
+      <button class="text-gray-400 cursor-not-allowed">
         September
-      </div>
-      <div class="text-gray-400 cursor-not-allowed">
+      </button>
+      <button class="text-gray-400 cursor-not-allowed">
         October
-      </div>
-      <div class="text-gray-400 cursor-not-allowed">
+      </button>
+      <button class="text-gray-400 cursor-not-allowed">
         November
-      </div>
-      <div class="text-gray-400 cursor-not-allowed">
+      </button>
+      <button class="text-gray-400 cursor-not-allowed">
         December
-      </div>
+      </button>
     </div>
   </div>
 </template>
@@ -51,3 +51,13 @@ export default {
 }
 
 </script>
+
+<style scoped>
+button {
+  margin: 0 .5em .5em 0;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+</style>
