@@ -11,6 +11,9 @@
 
 <script>
 export default {
+  head: {
+    title: "SAM"
+  },
   mounted() {
     this.$store.dispatch("incidents/getIncidents")
   }

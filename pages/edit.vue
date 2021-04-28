@@ -162,6 +162,9 @@ import { listIncidents } from "../src/graphql/queries";
 import * as mutations from "../src/graphql/mutations";
 export default {
   middleware: "authenticated",
+  head: {
+    title: "Edit activity"
+  },
   data() {
     return {
       incidents: [],

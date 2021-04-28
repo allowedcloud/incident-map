@@ -136,6 +136,9 @@
 <script>
 export default {
   name: "Add",
+  head: {
+    title: "Add activity"
+  },
   data() {
     return {
       value: "What happens?",

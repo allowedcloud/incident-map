@@ -28,6 +28,9 @@
 <script>
 export default {
   name: 'Login',
+  head: {
+    title: "Login"
+  },
   data() {
       return {
           error: []
