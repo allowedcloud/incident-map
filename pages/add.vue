@@ -149,8 +149,16 @@ export default {
     addIncident(payload) {
       const _ = require("lodash");  
       payload.primarySource = payload.sources[0].link
-      payload.secondarySource = payload.sources[1].link
-      payload.thirdSource = payload.sources[2].link
+      if (payload.sources[1] === undefined) {
+        payload.secondarySource = "#"
+      } else {
+        payload.secondarySource = payload.sources[1].link
+      }
+      if (payload.sources[2] === undefined) {
+        payload.thirdSource = "#"
+      } else {
+        payload.thirdSource = payload.source[2].link
+      }
       payload = _.omit(payload, ['sources'])
       this.$store.dispatch("incidents/addIncident", payload);
       this.$formulate.reset("add");
