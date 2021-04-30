@@ -37,17 +37,14 @@ export default {
       // Create popup
       let popup = `
         <div class="m-4">
-          <p class="text-xs uppercase text-gray-500 font-bold">${
-            incident.state
-          }</p>
-          <p class="text-xs uppercase text-gray-400 font-bold mb-8">${
+         <p class="flex flex-row flex-nowrap text-red-300 text-xs font-mono font-bold mb-8">${String(
+            incident.lat
+         ).slice(0, 5)}, ${String(incident.long).slice(0, 7)}</p>
+          <h3 class="font-bold leading-snug font-serif">${incident.title}</h3>
+          <p class="text-xs uppercase text-gray-600 font-bold my-2">${
             incident.date
           }</p>
-          <h3 class="font-bold leading-snug">${incident.title}</h3>
-          <p class="flex flex-row flex-nowrap text-red-400 text-xs font-mono font-bold my-2">${String(
-            incident.lat
-          ).slice(0, 5)}, ${String(incident.long).slice(0, 7)}</p>
-          <p class="text-sm text-gray-600 leading-tight">${incident.description}</p>
+          <p class="text-sm text-gray-500 leading-tight">${incident.description}</p>
         </div>
       `;
 
