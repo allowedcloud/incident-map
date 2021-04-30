@@ -1,6 +1,6 @@
 <template>
   <div class="m-12 mx-36">
-    <div class="flex flex-col items-center form-styles mt-10">
+    <div class="flex flex-col items-center">
       <FormulateForm
         name="add"
         @submit="addIncident"
@@ -16,6 +16,8 @@
               class="title"
             />
 
+            <div class="flex">
+
             <FormulateInput
               type="select"
               name="type"
@@ -30,6 +32,7 @@
                 'Military',
                 'Recorded video'
               ]"
+              class="mr-12"
             />
             <FormulateInput
               type="date"
@@ -37,13 +40,13 @@
               label="Date"
               validation="required|after:2021-01-01"
             />
+            </div>
 
             <FormulateInput
               type="textarea"
               name="description"
               label="Description"
               validation="required|max:200"
-              class="desc"
             />
 
             <h1
@@ -91,12 +94,14 @@
                   'Yucatán',
                   'Zacatecas',
                 ]"
+                class="mr-4"
               />
               <FormulateInput
                 type="text"
                 name="lat"
                 label="Latitude"
                 validation="required|number"
+                class="mx-2"
               />
 
               <FormulateInput
@@ -104,6 +109,7 @@
                 name="long"
                 label="Longitude"
                 validation="required|number"
+                class="mx-2"
               />
             </div>
           </div>
@@ -112,6 +118,8 @@
               type="group"
               name="sources"
               :repeatable="true"
+              validation-name="sources"
+              validation="max:3, length"
               add-label="+ Source"
             >
               <FormulateInput
@@ -150,91 +158,3 @@ export default {
   }
 };
 </script>
-
-<style lang="scss">
-.form-styles {
-  .lat-long {
-    gap: 2em;
-    grid-gap: 2em;
-    .formulate-input-wrapper {
-      input {
-        @apply w-20;
-      }
-    }
-  }
-  .form-grid {
-    gap: 2em;
-    grid-gap: 2em;
-  }
-  .formulate-input-errors {
-    @apply text-xs;
-    @apply text-red-400;
-    @apply whitespace-nowrap;
-  }
-  .formulate-input-group-repeatable-remove {
-    @apply text-xs;
-    @apply text-red-500;
-    display: block;
-    float: right;
-  }
-  .source {
-    button {
-      @apply text-xs;
-    }
-  }
-  .title {
-    input {
-      width: 400px;
-    }
-  }
-  .formulate-input-help--after {
-    @apply text-xs;
-    @apply font-bold;
-  }
-  .desc {
-    .formulate-input-wrapper {
-      height: 100px;
-    }
-  }
-  select {
-    @apply p-3;
-    @apply my-2;
-    @apply bg-white;
-    @apply rounded-md;
-    @apply font-mono;
-  }
-
-  input {
-    @apply py-2;
-
-    &:focus {
-      @apply ring-2;
-      @apply ring-yellow-400;
-      @apply border-yellow-400;
-    }
-  }
-  button {
-    @apply bg-yellow-400;
-    @apply rounded-md;
-    @apply font-bold;
-    @apply p-2;
-    @apply mt-4;
-  }
-
-  textarea {
-    width: 300px;
-
-    &:focus {
-      @apply ring-2;
-      @apply ring-yellow-400;
-      @apply border-yellow-400;
-    }
-  }
-
-  .formulate-input-wrapper {
-    label {
-      @apply text-gray-600;
-    }
-  }
-}
-</style>

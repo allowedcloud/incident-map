@@ -58,26 +58,3 @@ export default {
     }
 }
 </script>
-
-<style lang="scss">
-/* @import "../node_modules/@braid/vue-formulate/themes/snow/snow.scss"; */
-
-input, textarea{
-    border: 1px solid #D1D5DB;
-    padding: 5px;
-    border-radius: 5px;
-    margin: 10px 0;
-  }
-label {
-    font-weight: 600;
-    margin: 5px 0;
-}
-.submit-button {
-    @apply bg-yellow-400;
-    @apply p-2;
-    @apply my-2;
-    @apply rounded-md;
-    @apply w-16;
-    @apply text-center;
-  }
-</style>

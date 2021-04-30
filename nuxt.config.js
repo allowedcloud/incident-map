@@ -39,7 +39,7 @@ export default {
   buildModules:
       [
         // https://go.nuxtjs.dev/tailwindcss
-        '@nuxtjs/tailwindcss', '@braid/vue-formulate/nuxt'
+        '@nuxtjs/tailwindcss', '@braid/vue-formulate/nuxt',
       ],
 
   // Modules: https://go.nuxtjs.dev/config-modules

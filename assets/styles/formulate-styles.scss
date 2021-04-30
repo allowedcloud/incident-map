@@ -1,11 +1,92 @@
-.formulate-input-error {
-  @apply text-red-500;
-  @apply text-sm;
+.formulate-form {
+
+  input {
+    @apply p-1;
+    @apply my-1;
+    @apply rounded-md;
+    @apply border;
+    @apply border-gray-300;
+
+    &:focus {
+      @apply border-yellow-400;
+      @apply outline-none;
+      @apply ring;
+      @apply ring-yellow-400;
+    }
+  }
+
+  textarea {
+    @apply p-1;
+    @apply my-1;
+    @apply rounded-md;
+    @apply border;
+    @apply border-gray-300;
+
+    &:focus {
+      @apply border-yellow-400;
+      @apply outline-none;
+      @apply ring;
+      @apply ring-yellow-400;
+    }
+  }
+
+  select {
+    @apply p-1;
+    @apply my-1;
+    @apply rounded-md;
+    @apply bg-white;
+    @apply border;
+    @apply border-gray-300;
+
+    &:focus {
+      @apply border-yellow-400;
+      @apply outline-none;
+      @apply ring;
+      @apply ring-yellow-400;
+    }
+  }
+
+  button {
+    @apply bg-yellow-400;
+    @apply p-2;
+    @apply rounded-lg;
+  }
+
+  label {
+    @apply font-bold;
+  }
+
+  .formulate-input-group-repeatable-remove {
+    @apply text-xs;
+    @apply text-red-400;
+    @apply uppercase;
+  }
+
+  .formulate-input {
+    @apply my-2;
+  }
+
+  .formulate-input-error {
+    @apply text-red-500;
+    @apply text-sm;
+  }
 }
 
-#formulate--contact-4 {
-  @apply bg-yellow-400;
-  @apply rounded-lg;
-  @apply p-2;
-  @apply mt-1;
+.formulate-form--add {
+  textarea {
+    @apply w-96;
+    @apply h-32;
+  }
+  .title {
+    input {
+      width: 450px;
+    }
+  }
+  .source {
+    button {
+      @apply text-sm;
+    }
+  }
 }
+
+
