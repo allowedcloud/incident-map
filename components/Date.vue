@@ -5,9 +5,6 @@
       <div @click="reset" class="text-xs bg-yellow-300 text-yellow-700 p-1 rounded-md cursor-pointer">RESET</div>
     </div>
     <div class="flex flex-wrap w-96">
-      <button @click="sortByMonth('April')" class="underline text-blue-500 cursor-pointer">
-        April
-      </button>
       <button @click="sortByMonth('May')" class="underline text-blue-500 cursor-pointer">
         May
       </button>

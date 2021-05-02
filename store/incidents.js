@@ -60,13 +60,13 @@ export const actions = {
     commit("setSelectedMarker", id);
   },
   sortByMonth({ state, commit }, month) {
-    if (month === "April") {
-      const sorted = state.incidents.filter((incident) => dayjs(incident.date).month() == "3")
+    if (month === "May") {
+      const sorted = state.incidents.filter((incident) => dayjs(incident.date).month() == "4")
       commit("set", sorted)
       commit("selectedMonth", month)
-    } else if (month === "May") {
+    } else if (month === "June") {
       const sorted = state.incidents.filter(
-        (incident) => dayjs(incident.date).month() == "4"
+        (incident) => dayjs(incident.date).month() == "5"
       );
       commit("set", sorted)
       commit("selectedMonth", month)

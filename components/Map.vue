@@ -163,21 +163,21 @@ export default {
       }
       if (action.type == "incidents/sortByMonth") {
         const month = action.payload;
-        if (month === "April") {
+        if (month === "May") {
           this.closeAllPopups();
           this.selectedMarker = ""
           this.markers.forEach((marker) => {
-            if (dayjs(marker.date).month() !== 3) {
+            if (dayjs(marker.date).month() !== 4) {
               marker._element.classList.add("hidden");
             } else {
               marker._element.classList.remove("hidden");
             }
           });
-        } else if (month === "May") {
+        } else if (month === "June") {
           this.closeAllPopups();
           this.selectedMarker = ""
           this.markers.forEach((marker) => {
-            if (dayjs(marker.date).month() !== 4) {
+            if (dayjs(marker.date).month() !== 5) {
               marker._element.classList.add("hidden");
             } else {
               marker._element.classList.remove("hidden");
