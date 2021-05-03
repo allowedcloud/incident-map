@@ -28,6 +28,8 @@ export default {
       style: "mapbox://styles/mapbox/streets-v11",
       center: [-99.133209, 19.432608],
       zoom: 5,
+      maxZoom: 12,
+      minZoom: 5
     });
 
     // Create markers
