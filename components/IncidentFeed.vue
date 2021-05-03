@@ -28,7 +28,7 @@
                     </a>
                   </div>
                 </div>
-                <div class="text-xl font-bold font-serif w-3/4">{{ incident.title }}</div>
+                <div class="text-xl font-bold w-3/4">{{ incident.title }}</div>
                 <div class="text-yellow-500 text-sm">{{ incident.state }}</div>
                 <div class="text-gray-500">{{ incident.description }}</div>
               </div>
@@ -47,7 +47,7 @@
                   </a>
                   </div>
                 </div>
-                <div class="text-xl font-bold font-serif w-3/4">{{ incident.title }}</div>
+                <div class="text-xl font-bold w-3/4">{{ incident.title }}</div>
                 <div class="text-gray-500 text-sm group-hover:text-yellow-400">
                   {{ incident.state }}
                 </div>
