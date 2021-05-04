@@ -39,13 +39,15 @@ export default {
       // Create popup
       let popup = `
         <div class="m-4">
-         <p class="flex flex-row flex-nowrap text-red-300 text-xs font-mono font-bold mb-8">${String(
-            incident.lat
-         ).slice(0, 5)}, ${String(incident.long).slice(0, 7)}</p>
-          <h3 class="font-bold leading-snug">${incident.title}</h3>
-          <p class="text-xs uppercase text-gray-600 font-bold my-2">${
+          <h3 class="text-xl font-bold leading-tight mt-8 text-gray-800">${incident.title}</h3>
+          <div class="flex flex-row flex-nowrap my-2">
+          <p class="text-xs text-gray-600 font-mono mr-3">${
             incident.date
           }</p>
+         <p class="flex flex-row flex-nowrap text-yellow-400 text-xs font-mono">${String(
+            incident.lat
+         ).slice(0, 5)}, ${String(incident.long).slice(0, 7)}</p>
+        </div>
           <p class="text-sm text-gray-500 leading-tight">${incident.description}</p>
         </div>
       `;
@@ -73,16 +75,15 @@ export default {
         element.style.backgroundImage = "url(/video-message.svg)"
       }
 
-      element.style.width = "40px";
-      element.style.height = "40px";
+      element.style.width = "30px";
+      element.style.height = "30px";
       element.classList.add(
         "bg-white",
         "rounded-full",
         "m-1",
         "border-2",
-        "border-gray-600",
+        "border-gray-700",
         "bg-contain",
-        "hover:border-gray-400"
       );
 
       // Click marker
@@ -211,7 +212,7 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
 @import "../node_modules/mapbox-gl/dist/mapbox-gl.css";
 
 #map {
@@ -234,14 +235,23 @@ button:focus {
 }
 .mapboxgl-popup {
   will-change: auto;
-  min-width: 200px;
-  max-width: 300px;
+  min-width: 300px;
+  max-width: 400px;
 }
 .mapboxgl-popup-content {
-  @apply bg-gray-50 px-6 pb-6 leading-snug text-lg rounded-lg;
+  @apply bg-gray-50;
+  @apply px-6;
+  @apply pb-6;
+  @apply leading-snug;
+  @apply text-lg;
+  @apply rounded-lg;
 }
 .mapboxgl-popup-close-button {
-  @apply text-3xl mt-2 mr-4 text-gray-600;
+  @apply text-3xl;
+  @apply mt-2;
+  @apply mr-4;
+  @apply text-gray-600;
+
   &:hover {
     @apply bg-gray-50;
   }
