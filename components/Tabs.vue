@@ -1,6 +1,6 @@
 <template>
   <div>
-    <ul class="tabs__header">
+    <ul class="tabs__header text-gray-700 dark:text-white">
       <li
         v-for="(tab, index) in tabs"
         :key="tab.title"
@@ -53,7 +53,6 @@ ul.tabs__header {
     @apply select-none;
     @apply underline;
     @apply text-lg;
-    @apply text-gray-700;
     margin: 0 5px 0 5px;
   }
   .tab__selected {

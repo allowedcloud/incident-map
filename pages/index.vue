@@ -1,5 +1,5 @@
 <template>
-  <div class="h-screen grid lg:grid-cols-6 overflow-hidden">
+  <div class="h-screen grid lg:grid-cols-6 overflow-hidden dark:bg-gray-800">
     <div class="h-96 lg:col-span-4 p-4 z-20">
       <Map />
     </div>

@@ -15,7 +15,7 @@
             @click="clickIncident(incident.id)"
           >
             <template v-if="incident.id === selectedMarker">
-              <div class="default border-yellow-400">
+              <div class="default border-2 border-yellow-400">
                 <div class="flex justify-between">
                   <div class="font-mono font-bold text-yellow-400 text-sm">
                     {{ incident.date }}
@@ -28,13 +28,13 @@
                     </a>
                   </div>
                 </div>
-                <div class="text-xl font-bold w-3/4">{{ incident.title }}</div>
+                <div class="text-xl font-bold w-3/4 dark:text-white">{{ incident.title }}</div>
                 <div class="text-yellow-500 text-sm">{{ incident.state }}</div>
-                <div class="text-gray-500">{{ incident.description }}</div>
+                <div class="text-gray-500 dark:text-gray-200">{{ incident.description }}</div>
               </div>
             </template>
             <template v-else>
-              <div class="default hover:border-yellow-400 group">
+              <div class="default border-2 hover:border-yellow-400 group">
                 <div class="flex justify-between">
                   <div class="font-mono text-gray-400 text-sm">
                     {{ incident.date }}
@@ -47,11 +47,11 @@
                   </a>
                   </div>
                 </div>
-                <div class="text-xl font-bold w-3/4">{{ incident.title }}</div>
+                <div class="text-xl font-bold w-3/4 dark:text-white">{{ incident.title }}</div>
                 <div class="text-gray-500 text-sm group-hover:text-yellow-400">
                   {{ incident.state }}
                 </div>
-                <div class="text-gray-500">{{ incident.description }}</div>
+                <div class="text-gray-500 dark:text-gray-200">{{ incident.description }}</div>
               </div>
             </template>
           </div>
@@ -139,12 +139,12 @@ export default {
   @apply border-2;
 }
 .default {
-  border-width: 1px;
   @apply p-4;
   @apply my-2;
   @apply rounded-lg;
   @apply shadow-md;
   @apply bg-white;
+  @apply dark:bg-gray-700;
   @apply cursor-pointer;
 }
 </style>

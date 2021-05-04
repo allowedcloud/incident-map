@@ -1,6 +1,7 @@
 <template>
-  <div class="pr-4 py-1 text-right bg-gray-200">
-    <p class="text-gray-600 text-xs mr-2">
+  <div class="pr-4 py-1 text-right bg-gray-200 dark:bg-gray-700">
+    <p class="text-gray-600 dark:text-white text-xs mr-2">
+      <ColorModeToggle />
       <button
         v-tippy="{
           trigger: 'focus mouseenter',

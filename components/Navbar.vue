@@ -1,8 +1,8 @@
 <template>
-  <nav class="flex flex-row justify-between items-center p-2">
+  <nav class="flex flex-row justify-between items-center p-2 dark:bg-gray-800">
     <div class="flex flex-row items-center ml-2">
       <img src="/warning.svg" class="w-6">
-      <span class="text-xl font-bold ml-1 select-none">Significant Activities Map</span>
+      <span class="text-xl font-bold ml-1 select-none dark:text-white">Significant Activities Map</span>
     </div>
     <div class="flex flex-row mr-2 gap-4">
       <NuxtLink to="/" v-if="isAuthenticated">

@@ -39,16 +39,16 @@ export default {
       // Create popup
       let popup = `
         <div class="m-4">
-          <h3 class="text-xl font-bold leading-tight mt-8 text-gray-800">${incident.title}</h3>
+          <h3 class="text-xl font-bold leading-tight mt-8 text-gray-800 dark:text-white">${incident.title}</h3>
           <div class="flex flex-row flex-nowrap my-2">
-          <p class="text-xs text-gray-600 font-mono mr-3">${
+          <p class="text-xs text-gray-600 dark:text-gray-100 font-mono mr-3">${
             incident.date
           }</p>
          <p class="flex flex-row flex-nowrap text-yellow-400 text-xs font-mono">${String(
             incident.lat
          ).slice(0, 5)}, ${String(incident.long).slice(0, 7)}</p>
         </div>
-          <p class="text-sm text-gray-500 leading-tight">${incident.description}</p>
+          <p class="text-sm text-gray-500 dark:text-gray-200 leading-tight">${incident.description}</p>
         </div>
       `;
 
@@ -240,6 +240,7 @@ button:focus {
 }
 .mapboxgl-popup-content {
   @apply bg-gray-50;
+  @apply dark:bg-gray-700;
   @apply px-6;
   @apply pb-6;
   @apply leading-snug;
@@ -251,6 +252,7 @@ button:focus {
   @apply mt-2;
   @apply mr-4;
   @apply text-gray-600;
+  @apply dark:text-gray-100;
 
   &:hover {
     @apply bg-gray-50;
@@ -264,16 +266,26 @@ button:focus {
 .mapboxgl-popup-anchor-top-left .mapboxgl-popup-tip,
 .mapboxgl-popup-anchor-top-right .mapboxgl-popup-tip {
   border-bottom-color: #F9FAFB;
+  @apply dark:border-gray-700;
 }
 .mapboxgl-popup-anchor-bottom .mapboxgl-popup-tip,
 .mapboxgl-popup-anchor-bottom-left .mapboxgl-popup-tip,
 .mapboxgl-popup-anchor-bottom-right .mapboxgl-popup-tip {
   border-top-color: #F9FAFB;
 }
+
+.dark-mode .mapboxgl-popup-anchor-bottom .mapboxgl-popup-tip,
+.mapboxgl-popup-anchor-bottom-left .mapboxgl-popup-tip,
+.mapboxgl-popup-anchor-bottom-right .mapboxgl-popup-tip {
+  border-top-color: #374151;
+}
+
 .mapboxgl-popup-anchor-left .mapboxgl-popup-tip {
   border-right-color: #F9FAFB;
+  @apply dark:border-gray-700;
 }
 .mapboxgl-popup-anchor-right .mapboxgl-popup-tip {
   border-left-color: #F9FAFB;
+  @apply dark:border-gray-700;
 }
 </style>

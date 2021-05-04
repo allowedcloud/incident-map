@@ -8,10 +8,10 @@
     @apply border-gray-300;
 
     &:focus {
-      @apply border-yellow-400;
+      @apply border-yellow-300;
       @apply outline-none;
-      @apply ring;
-      @apply ring-yellow-400;
+      @apply ring-2;
+      @apply ring-yellow-300;
     }
   }
 
@@ -23,10 +23,10 @@
     @apply border-gray-300;
 
     &:focus {
-      @apply border-yellow-400;
+      @apply border-yellow-300;
       @apply outline-none;
-      @apply ring;
-      @apply ring-yellow-400;
+      @apply ring-2;
+      @apply ring-yellow-300;
     }
   }
 
@@ -39,10 +39,10 @@
     @apply border-gray-300;
 
     &:focus {
-      @apply border-yellow-400;
+      @apply border-yellow-300;
       @apply outline-none;
-      @apply ring;
-      @apply ring-yellow-400;
+      @apply ring-2;
+      @apply ring-yellow-300;
     }
   }
 

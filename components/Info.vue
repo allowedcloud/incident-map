@@ -1,5 +1,5 @@
 <template>
-  <div class="absolute top-3 left-14">
+  <div class="absolute top-3 left-14 dark:text-white">
     <span class="font-bold">
       {{ numberOfActivities }}
     </span>
