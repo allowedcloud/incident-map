@@ -1,5 +1,5 @@
 <template>
-  <div class="flex h-screen items-center place-content-center">
+  <div class="flex h-screen items-center place-content-center dark:text-white">
     <FormulateForm @submit="login" class="border-2 border-yellow-400 p-10 rounded-md shadow-lg">
       <h2 class="text-2xl font-bold border-b-2 border-yellow-400 pb-2 mb-4">Login</h2>
       <FormulateInput

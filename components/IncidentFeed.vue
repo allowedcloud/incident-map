@@ -126,7 +126,7 @@ export default {
 .incident-container {
   @media (min-width: 1025px) {
     /* height: 770px; */
-    height: 87vh;
+    height: 86vh;
     width: 100%;
     padding: 25px 0;
   }

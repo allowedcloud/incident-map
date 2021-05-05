@@ -1,10 +1,13 @@
 <template>
   <nav class="flex flex-row justify-between items-center p-2 my-1 bg-gray-50 dark:bg-gray-700">
-    <div class="flex flex-row">
+    <div class="flex flex-row main-links">
     <div class="flex flex-row items-center ml-2">
       <img src="/warning.svg" class="w-6">
       <span class="text-xl font-bold ml-1 select-none dark:text-white">Significant Activities Map</span>
     </div>
+    <NuxtLink to="#" class="text-lg text-red-300 border border-gray-50 hover:text-red-400 hover:border-gray-200 ml-12">Articles</NuxtLink>
+    <NuxtLink to="#" class="text-lg text-green-300 border border-gray-50 hover:text-green-400 hover:border-gray-200 ml-6">Library</NuxtLink>
+    <NuxtLink to="#" class="text-lg text-blue-300 border border-gray-50 hover:text-blue-400 hover:border-gray-200 ml-6">Presswire</NuxtLink>
     </div>
     <div class="flex flex-row mr-2 gap-4">
       <NuxtLink to="/" v-if="isAuthenticated">
@@ -51,7 +54,17 @@ export default {
 }
 </script>
 
-<style scoped>
+<style style="scss" scoped>
+.main-links {
+  a {
+    @apply rounded-md;
+    @apply p-1;
+    @apply px-2;
+    &:hover {
+      @apply bg-gray-100;
+    }
+  }
+}
 button {
     padding: 0;
     margin: 0;

@@ -1,5 +1,5 @@
 <template>
-  <div class="grid place-content-center h-screen">
+  <div class="grid place-content-center h-screen dark:text-white">
     <FormulateForm name="contactForm" @submit="submitForm">
       <FormulateInput type="text" name="name" label="Name"  validation="required" />
       <FormulateInput type="text" name="email" label="Email" validation="required|email"/>
