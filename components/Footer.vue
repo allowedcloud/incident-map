@@ -1,6 +1,6 @@
 <template>
-  <div class="pr-4 py-1 text-right bg-gray-200 dark:bg-gray-700">
-    <p class="text-gray-600 dark:text-white text-xs mr-2">
+  <footer class="text-right mr-4 py-1 z-20 absolute bottom-0 right-0">
+    <p class="text-xs text-gray-600 dark:text-gray-200">
       <ColorModeToggle />
       <button
         v-tippy="{
@@ -14,19 +14,13 @@
         Icons
       </button>
       <NuxtLink to="/contact" class="underline ml-1 hover:no-underline">Contact</NuxtLink>
-      <span class="mx-1">·</span>
-      <a href="https://narco.news" class="font-bold text-yellow-500">narco.news</a>&nbsp;
-      <span class="font-bold select-none">SAM</span>
     </p>
-  </div>
+  </footer>
 </template>
 
 <script>
 export default {
-
+  name: 'Footer'
 }
 </script>
 
-<style>
-
-</style>

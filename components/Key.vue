@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col mt-20 select-none">
+  <div class="grid grid-cols-2 gap-6 mt-20 select-none">
     <div class="flex items-center">
       <img
         src="/homicide.svg"
@@ -74,10 +74,15 @@ export default {
 </script>
 
 <style scoped>
+p {
+  @apply dark:text-gray-100;
+}
 div {
   margin-bottom: 2em;
 }
 img {
-  margin-right: 2em;
+  margin-right: 1em;
+  @apply bg-white;
+  @apply dark:border-gray-900;
 }
 </style>

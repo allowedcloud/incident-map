@@ -28,7 +28,8 @@ export default {
   plugins:
       [
         // { src: '~/plugins/mapbox', mode: 'client' }
-        { src: '~/plugins/tippy.js'}
+        { src: '~/plugins/tippy.js'},
+        { src: '~/plugins/animate-css.js', ssr: false }
       ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components

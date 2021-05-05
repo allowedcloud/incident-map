@@ -21,7 +21,7 @@
                     {{ incident.date }}
                   </div>
                   <div
-                    class="flex flex-nowrap items-center bg-yellow-400 rounded-lg p-1"
+                    class="flex flex-nowrap items-center bg-yellow-300 rounded-lg p-1"
                   >
                     <a :href="incident.primarySource" target="_blank">
                       <img src="/external-link.svg" class="w-4 h-4" />
@@ -34,13 +34,13 @@
               </div>
             </template>
             <template v-else>
-              <div class="default border-2 hover:border-yellow-400 group">
+              <div class="default border-2 border-gray-700 hover:border-yellow-300 dark:border-gray-900">
                 <div class="flex justify-between">
                   <div class="font-mono text-gray-400 text-sm">
                     {{ incident.date }}
                   </div>
                   <div
-                    class="flex flex-nowrap items-center bg-gray-100 incident hover:bg-gray-200 rounded-lg p-1"
+                    class="flex flex-nowrap items-center bg-gray-200 incident hover:bg-gray-200 rounded-lg p-1"
                   >
                   <a :href="incident.primarySource" target="_blank">
                     <img src="/external-link.svg" class="w-4 h-4" />
@@ -48,22 +48,22 @@
                   </div>
                 </div>
                 <div class="text-xl font-bold w-3/4 dark:text-white">{{ incident.title }}</div>
-                <div class="text-gray-500 text-sm group-hover:text-yellow-400">
+                <p class="text-gray-500 dark:text-gray-200 text-sm">
                   {{ incident.state }}
-                </div>
+                </p>
                 <div class="text-gray-500 dark:text-gray-200">{{ incident.description }}</div>
               </div>
             </template>
           </div>
         </div>
       </tab>
-      <tab title="Date">
-        <Date />
-      </tab>
-      <tab title="Key">
+      <tab title="Key" class="animate__animated animate__fadeIn">
         <Key />
       </tab>
-      <tab title="About">
+      <tab title="Date" class="animate__animated animate__fadeIn">
+        <Date />
+      </tab>
+      <tab title="About" class="animate__animated animate__fadeIn">
         <About />
       </tab>
     </tabs>
@@ -126,7 +126,7 @@ export default {
 .incident-container {
   @media (min-width: 1025px) {
     /* height: 770px; */
-    height: 88vh;
+    height: 87vh;
     width: 100%;
     padding: 25px 0;
   }
@@ -144,7 +144,7 @@ export default {
   @apply rounded-lg;
   @apply shadow-md;
   @apply bg-white;
-  @apply dark:bg-gray-700;
+  @apply dark:bg-gray-800;
   @apply cursor-pointer;
 }
 </style>

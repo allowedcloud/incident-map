@@ -1,5 +1,5 @@
 <template>
-  <div class="absolute top-3 left-14 dark:text-white">
+  <div class="absolute top-1 left-14 text-gray-700 dark:text-gray-200 animate__animated animate__fadeIn">
     <span class="font-bold">
       {{ numberOfActivities }}
     </span>

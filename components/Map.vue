@@ -216,15 +216,13 @@ export default {
 @import "../node_modules/mapbox-gl/dist/mapbox-gl.css";
 
 #map {
+  @apply rounded-tr-2xl;
   @media (min-width: 1025px) {
-    min-height: 89vh;
+    min-height: 100vh;
   }
   @media (max-width: 768px) {
     min-height: 65vh;
   }
-  @apply rounded-lg;
-  border-width: 1px;
-  @apply border-gray-900;
 }
 
 *:focus {
