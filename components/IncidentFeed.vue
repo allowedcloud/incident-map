@@ -36,11 +36,11 @@
             <template v-else>
               <div class="default border-2 border-gray-700 hover:border-yellow-300 dark:border-gray-900">
                 <div class="flex justify-between">
-                  <div class="font-mono text-gray-400 text-sm">
+                  <div class="font-mono text-gray-500 text-sm">
                     {{ incident.date }}
                   </div>
                   <div
-                    class="flex flex-nowrap items-center bg-gray-200 incident hover:bg-gray-200 rounded-lg p-1"
+                    class="flex flex-nowrap items-center bg-gray-200 dark:bg-gray-300 incident hover:bg-gray-200 rounded-lg p-1"
                   >
                   <a :href="incident.primarySource" target="_blank">
                     <img src="/external-link.svg" class="w-4 h-4" />
@@ -48,10 +48,10 @@
                   </div>
                 </div>
                 <div class="text-xl font-bold w-3/4 dark:text-white">{{ incident.title }}</div>
-                <p class="text-gray-500 dark:text-gray-200 text-sm">
+                <p class="text-gray-500 dark:text-gray-100 text-sm">
                   {{ incident.state }}
                 </p>
-                <div class="text-gray-500 dark:text-gray-200">{{ incident.description }}</div>
+                <div class="text-gray-500 dark:text-gray-300">{{ incident.description }}</div>
               </div>
             </template>
           </div>

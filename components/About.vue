@@ -1,15 +1,10 @@
 <template>
-  <div>
-    <p class="mt-20 px-10 text-xl">
-      The <span class="text-yellow-500">Significant Activities Map</span> (SAM) is a tool
-      to track organized-crime related activity in Mexico. This list is curated by hand,
-      with all source links provided on the right of each activity. The majority of primary sources are
-      from social media and supplemented with press sources when applicable. Selecting a month
-      under the date tab will filter the list by month.
-    </p>
-    <p class="mt-8 px-10">
-      SAM is built with Vue JS and uses Tailwind CSS for styling. You can check out the
-      <a href="https://github.com/" class="text-blue-400 underline"> source code</a> if you're curious.
+  <div class="mt-20 px-10">
+    <p class="text-xl">
+      The <span class="font-bold">Significant Activities Map</span> (SAM) is a tool for tracking the latest
+      organized crime incidents in Mexico. It was developed in order to keep a record of incidents
+      not always thoroughly covered by the press. This being the case, most incidents are sourced
+      from social media and not all of them contain complete information.
     </p>
   </div>
 </template>
